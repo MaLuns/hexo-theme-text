@@ -66,5 +66,8 @@
         </div>
     <%}%>
     <%- partial('./next') %>
+    <% if(!page.comment){%>
+        <%- partial('./comment',{comtitle:__('post.comments')}) %>
+    <% }%>
 <%}%>
 

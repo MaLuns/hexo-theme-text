@@ -101,7 +101,10 @@ $(function () {
             } else {
                 $("#back-top").removeClass("show")
             }
-            app.toc()
+            
+            if(window.CONFIG.isToc){
+                app.toc()
+            }
         },
         toc() {
             let viewHeight = window.innerHeight || document.documentElement.clientHeight
