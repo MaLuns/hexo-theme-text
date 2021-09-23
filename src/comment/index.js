@@ -212,7 +212,7 @@ class ComComment extends HTMLElement {
     }
 
     _cancel_reply() {
-        this.shadowRoot.querySelector(".edit-content").appendChild(this.shadowRoot.getElementById('c-comment'));
+        this.shadowRoot.querySelector(".edit-container").appendChild(this.shadowRoot.getElementById('c-comment'));
         this.atComment = null
     }
 
