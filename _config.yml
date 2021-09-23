@@ -1,4 +1,4 @@
-version: 1.0.3
+version: 1.0.4
 
 user:
   name: 白云苍狗
@@ -24,7 +24,7 @@ post_wordcount:
 sw: true
 
 #开启文章目录
-isToc: true
+isToc: false
 #
 canonical: true
 
