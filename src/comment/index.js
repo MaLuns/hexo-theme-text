@@ -205,8 +205,6 @@ class ComComment extends HTMLElement {
                 this.textarea_hidden.innerHTML = ''
                 this.textarea.value = ''
                 this.textarea.style.height = '40px';
-
-                console.log(param, '发送成功')
             }
             this.sending = false;
 
@@ -214,7 +212,7 @@ class ComComment extends HTMLElement {
     }
 
     _cancel_reply() {
-        this.shadowRoot.appendChild(this.shadowRoot.getElementById('c-comment'));
+        this.shadowRoot.querySelector(".edit-content").appendChild(this.shadowRoot.getElementById('c-comment'));
         this.atComment = null
     }
 

@@ -1,4 +1,4 @@
-version: 1.0.4
+version: 1.0.5
 
 user:
   name: 白云苍狗
@@ -6,6 +6,7 @@ user:
   avatar: https://www.imalun.com/images/avatar.jpg
   title: 一觉游仙好梦，任它竹冷松寒。轩辕事，古今谈，风流河山。沉醉负白首，舒怀成大观。醒，亦在人间；梦，亦在人间
   desc: 醒，亦在人间；梦，亦在人间。
+  birthDay: 11/19/2019 17:00:00 #计时开始时间
 
 favicon:
   visibilitychange: true

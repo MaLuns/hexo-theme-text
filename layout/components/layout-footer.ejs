@@ -3,7 +3,7 @@
     <span itemprop="copyrightYear">
         <%= date(Date.now(), "YYYY" ) %>
     </span>
-    <%= config.title %> ·
+    <%= config.title || '' %> ·
         Theme by <a href="https://github.com/MaLuns/hexo-theme-text" target="_blank">hexo-theme-simple </a>·
         <%- __('footer.tips') %>:
         <span id="since"></span>
@@ -18,7 +18,7 @@
 <script type="text/javascript">
     function show_date_time() {
         window.setTimeout("show_date_time()", 1000);
-        BirthDay = new Date("11/19/2019 17:00:00");
+        BirthDay = new Date("<%- theme.user.birthDay %>");
         today = new Date();
         timeold = (today.getTime() - BirthDay.getTime());
         sectimeold = timeold / 1000

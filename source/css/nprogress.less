@@ -3,7 +3,7 @@
     pointer-events: none;
 
     .bar {
-        background   : rgb(202, 139, 88);
+        background   : var(--ngBarBgColor, #ca8b58);
         position     : fixed;
         z-index      : 1031;
         top          : 0;
@@ -31,18 +31,6 @@
         z-index : 1031;
         top     : 15px;
         right   : 15px;
-    }
-
-    .spinner-icon {
-        width            : 18px;
-        height           : 18px;
-        box-sizing       : border-box;
-        border           : solid 2px transparent;
-        border-top-color : var(--themeColor, #29d);
-        border-left-color: var(--themeColor, #29d);
-        border-radius    : 50%;
-        -webkit-animation: nprogress-spinner 400ms linear infinite;
-        animation        : nprogress-spinner 400ms linear infinite;
     }
 }
 

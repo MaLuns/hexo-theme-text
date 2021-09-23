@@ -130,7 +130,7 @@ body {
             padding         : 10px 0;
             border-radius   : 5px;
             transition      : all var(--transitionTim, .3s ease);
-            background-color: #f9fbff7a;
+            background-color: var(--linkItemBgColor, #f9f9f9);
             margin-bottom   : 3px;
 
             >a {
@@ -164,7 +164,7 @@ body {
             }
 
             &:hover {
-                background-color: #fff;
+                background-color: var(--linkItemBgColor2, #fff);
             }
         }
     }
@@ -248,7 +248,7 @@ body {
     .post-header {
         text-align    : center;
         padding-bottom: 10px;
-        border-bottom : 1px dashed rgb(185, 185, 185);
+        border-bottom : 1px dashed var(--dashedBorderColor,#c5c5c5);;
         width         : max-content;
         margin        : 0 auto 3em;
 
@@ -277,7 +277,6 @@ body {
 
     img+em {
         display    : block;
-        color      : #aaa;
         font-family: 'Alegreya Sans', 'Helvetica', 'Arial', sans-serif;
         font-size  : .9rem;
         font-style : normal;
@@ -309,19 +308,6 @@ body {
         }
     }
 
-    ul#markdown-toc {
-        color: #ffd900
-    }
-
-    ul#markdown-toc li a {
-        color     : #222;
-        background: 0 0
-    }
-
-    ul#markdown-toc li a:hover {
-        text-decoration: none
-    }
-
     li {
         font-size: 1rem
     }
@@ -336,11 +322,6 @@ body {
         font-family: 'KaiTi', serif
     }
 
-    h2 a,
-    .post h3 a,
-    .post h4 a {
-        color: #333
-    }
 
     h2:before {
         content      : "∮";
