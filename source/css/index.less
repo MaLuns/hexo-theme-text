@@ -97,11 +97,20 @@ body {
 }
 
 .layout-footer {
-    font-size  : 14px;
-    margin-top : 80px;
-    height     : 3em;
-    line-height: 3em;
-    text-align : center;
+    font-size : 14px;
+    margin-top: 80px;
+    height    : 4em;
+    text-align: center;
+
+    #since {
+        font-family: monospace, Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New;
+    }
+
+    a {
+        text-decoration      : underline;
+        color                : var(--postLinkColor, #bb996d);
+        text-decoration-color: var(--postLinkColor, #bb996d);
+    }
 }
 
 /* 友连 */
@@ -248,9 +257,10 @@ body {
     .post-header {
         text-align    : center;
         padding-bottom: 10px;
-        border-bottom : 1px dashed var(--dashedBorderColor,#c5c5c5);;
-        width         : max-content;
-        margin        : 0 auto 3em;
+        border-bottom : 1px dashed var(--dashedBorderColor, #c5c5c5);
+        ;
+        width : max-content;
+        margin: 0 auto 3em;
 
         .post-title {
             margin-bottom: 10px;

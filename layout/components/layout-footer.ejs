@@ -3,7 +3,13 @@
     <span itemprop="copyrightYear">
         <%= date(Date.now(), "YYYY" ) %>
     </span>
-    <%= config.title || '' %> · Theme by <a href="https://github.com/MaLuns/hexo-theme-text" target="_blank">hexo-theme-text </a>·
+    <%= ' · '+(config.title || '') %> 
+    <% if(theme.rss){%>
+        · 
+        <a class="_pjax" href="<%- url_for(theme.rss) %>"> RSS </a>
+    <%}%>
+    <br>
+     Theme by <a href="https://github.com/MaLuns/hexo-theme-text" target="_blank">hexo-theme-text </a> ·
     <%- __('footer.tips') %>:
     <span id="since"></span>
         
