@@ -22,6 +22,7 @@ body {
 
 @headerHeight : 80px;
 
+/* 页眉 */
 .layout-header {
     height         : @headerHeight;
     display        : flex;
@@ -36,8 +37,12 @@ body {
 
         li {
             display: inline-block;
-            margin : 0 10px;
+            margin : 0 1.2em;
             height : 30px;
+
+            a {
+                .linkDecorationMixin()
+            }
         }
     }
 
@@ -53,6 +58,7 @@ body {
     }
 }
 
+/* 主体 */
 .layout-main {
     display  : block;
     margin   : 0 auto;
@@ -96,6 +102,7 @@ body {
 
 }
 
+/* 页尾 */
 .layout-footer {
     font-size : 14px;
     margin-top: 80px;
@@ -108,8 +115,8 @@ body {
 
     a {
         text-decoration      : underline;
-        color                : var(--postLinkColor, #bb996d);
-        text-decoration-color: var(--postLinkColor, #bb996d);
+        color                : var(--postLinkColor, #6062ce);
+        text-decoration-color: var(--postLinkColor, #6062ce);
     }
 }
 
@@ -258,9 +265,8 @@ body {
         text-align    : center;
         padding-bottom: 10px;
         border-bottom : 1px dashed var(--dashedBorderColor, #c5c5c5);
-        ;
-        width : max-content;
-        margin: 0 auto 3em;
+        width         : max-content;
+        margin        : 0 auto 3em;
 
         .post-title {
             margin-bottom: 10px;
@@ -274,6 +280,7 @@ body {
     }
 
     a {
+        font-weight: 600;
         .postLinkMixin();
     }
 
@@ -335,21 +342,21 @@ body {
 
     h2:before {
         content      : "∮";
-        color        : #bb996d;
+        color        : var(--postLinkColor, #6062ce);
         font-size    : 1.7rem;
         padding-right: .5rem
     }
 
     h3:before {
         content      : "∯";
-        color        : #bb996d;
+        color        : var(--postLinkColor, #6062ce);
         font-size    : 1.35rem;
         padding-right: .5rem
     }
 
     h4:before {
         content      : "∰";
-        color        : #bb996d;
+        color        : var(--postLinkColor, #6062ce);
         padding-right: .5rem
     }
 
@@ -386,12 +393,11 @@ body {
             max-width    : 100%;
             padding      : 0 5px;
             display      : inline-block;
-            font-size    : 16px;
             white-space  : nowrap;
             overflow     : hidden;
             text-overflow: ellipsis;
-
-            .postLinkMixin()
+            .postLinkMixin();
+            font-size: 16px;
         }
     }
 }
@@ -540,8 +546,8 @@ body {
             display: flex;
 
             &.current {
-                color                : var(--postLinkColor, #bb996d);
-                text-decoration-color: var(--postLinkColor, #bb996d);
+                color                : var(--postLinkColor, #6062ce);
+                text-decoration-color: var(--postLinkColor, #6062ce);
             }
 
             .toc-text {
@@ -554,6 +560,7 @@ body {
     }
 }
 
+/* 加载 */
 .loaded {
     display: none;
 
@@ -592,6 +599,7 @@ body {
     }
 }
 
+/* 留言标题 */
 .comments-list-header {
     text-align   : center;
     margin-bottom: 2em;
@@ -603,6 +611,10 @@ body {
     vertical-align: -0.15em;
     fill          : currentColor;
     overflow      : hidden;
+}
+
+#more {
+    display: none
 }
 
 @import './hithlight.less';
