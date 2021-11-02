@@ -1,27 +1,44 @@
-// 颜色过渡混入
-.colorTransitionMixin(@var, @attr: color, @transition: color) {
+// 属性过渡混入
+.attrTransitionMixin(@var, @attr: color, @transition: color) {
     @{attr}    : @var;
     transition+: @transition var(--transitionTime, 0.3s ease);
 }
 
+// 颜色过渡混入
 .hColorMixin(@attr: color, @transition: color) {
-    .colorTransitionMixin(var(--hColor, #000), @attr, @transition);
+    .attrTransitionMixin(var(--hColor, #000), @attr, @transition);
 }
 
 .metaColorMixin(@attr: color, @transition: color) {
-    .colorTransitionMixin(var(--metaColor, #5c5c5c), @attr, @transition);
+    .attrTransitionMixin(var(--metaColor, #5c5c5c), @attr, @transition);
 }
 
 .bodyBgColorMixin(@attr: color, @transition: color) {
-    .colorTransitionMixin(var(--bodyBgColor, #f2f3f0), @attr, @transition);
+    .attrTransitionMixin(var(--bodyBgColor, #f2f3f0), @attr, @transition);
 }
 
 .commentColorMixin(@attr: color, @transition: color) {
-    .colorTransitionMixin(var(--commentColor, #525f7f), @attr, @transition);
+    .attrTransitionMixin(var(--commentColor, #525f7f), @attr, @transition);
+}
+
+// 链接 下划线
+.linkDecorationMixin() {
+    position: relative;
+
+    &::before {
+        content         : '';
+        display         : block;
+        position        : absolute;
+        bottom          : 0;
+        height          : 5px;
+        width           : 100%;
+        background-color: var(--linkDecorationColor, #8b959f66);
+    }
 }
 
 .postLinkMixin() {
     font-size            : .9rem;
+    padding              : 0 5px;
     text-decoration      : underline;
     color                : var(--postLinkColor, #bb996d);
     text-decoration-color: var(--postLinkColor, #bb996d);

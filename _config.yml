@@ -1,4 +1,4 @@
-version: 1.0.8
+version: 1.0.9
 
 user:
   name: 白云苍狗
@@ -42,15 +42,17 @@ cdn:
 
 menu:
   nav:
-    - title: 白云苍狗
+    - title: 🌈&nbsp;白云苍狗
       url: /
-    - title: ARCHIVES
+    - title: 📦&nbsp;归档
       url: /archives
-    - title: LINKS
+    - title: 🔗&nbsp;友情连接
       url: /links
-    - title: COMMENTS
+    - title: 📧&nbsp;留言
       url: /comment
-    - title: ABOUT
+    - title: 😉&nbsp;关于
       url: /about
+    - title: 🚅&nbsp;十年之约
+      url: //foreverblog.cn/go.html
 
 rss: atom.xml
