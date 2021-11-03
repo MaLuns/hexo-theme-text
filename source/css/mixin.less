@@ -23,16 +23,12 @@
 
 // 链接 下划线
 .linkDecorationMixin() {
-    position: relative;
+    background     : linear-gradient(var(--linkDecorationColor, #8b959f66), var(--linkDecorationColor, #8b959f66)) bottom no-repeat;
+    background-size: 100% .4em;
+    transition     : background-size var(--transitionTime, 0.3s ease);
 
-    &::before {
-        content         : '';
-        display         : block;
-        position        : absolute;
-        bottom          : 0;
-        height          : 5px;
-        width           : 100%;
-        background-color: var(--linkDecorationColor, #8b959f66);
+    &:hover {
+        background-size: 100% 50%;
     }
 }
 
@@ -40,12 +36,12 @@
     font-size            : .9rem;
     padding              : 0 5px;
     text-decoration      : underline;
-    color                : var(--postLinkColor, #bb996d);
-    text-decoration-color: var(--postLinkColor, #bb996d);
+    color                : var(--postLinkColor, #6062ce);
+    text-decoration-color: var(--postLinkColor, #6062ce);
 
     &:hover {
-        color          : #fff;
-        background     : var(--postLinkColor, #bb996d);
+        color          : var(--postLinkColorRreverse, #fff);
+        background     : var(--postLinkColor, #6062ce);
         text-decoration: none;
     }
 }

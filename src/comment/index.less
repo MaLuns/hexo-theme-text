@@ -12,6 +12,7 @@
         .c-item {
             display: flex;
             padding: 20px 0 10px 0;
+            opacity: .5;
 
             .user-img {
                 width        : 40px;
@@ -98,8 +99,12 @@
                 }
             }
 
-            &:hover>.vh>.c-meta>.c-at {
+            &:hover {
                 opacity: 1;
+
+                >.vh>.c-meta>.c-at {
+                    opacity: 1;
+                }
             }
 
             +.c-item {
