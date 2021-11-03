@@ -1,4 +1,4 @@
-version: 1.0.9
+version: 1.0.10
 
 user:
   name: 白云苍狗
@@ -52,7 +52,7 @@ menu:
       url: /comment
     - title: 😉&nbsp;关于
       url: /about
-    - title: 🚅&nbsp;十年之约
+    - title: 🪐&nbsp;虫洞
       url: //foreverblog.cn/go.html
 
 rss: atom.xml

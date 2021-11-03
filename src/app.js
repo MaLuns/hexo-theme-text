@@ -101,23 +101,25 @@ $(function () {
             } else {
                 $("#back-top").removeClass("show")
             }
-            
-            if(window.CONFIG.isToc){
+
+            if (window.CONFIG.isToc) {
                 app.toc()
             }
         },
         toc() {
             let viewHeight = window.innerHeight || document.documentElement.clientHeight
             let post = document.getElementsByClassName("post-content")[0]
-            let titles = post.querySelectorAll('h1,h2,h3,h4,h5,h6')
-            let scrollY = window.scrollY
-            for (let index = 0; index < titles.length; index++) {
-                let element = titles[index];
-                if (element.offsetTop >= scrollY && element.offsetTop <= scrollY + viewHeight) {
-                    if (index > 0) element = titles[index - 1];
-                    $("#post-toc .current").removeClass("current");
-                    $('a[href="#' + element.id + '"]').addClass('current')
-                    break
+            if (post) {
+                let titles = post.querySelectorAll('h1,h2,h3,h4,h5,h6')
+                let scrollY = window.scrollY
+                for (let index = 0; index < titles.length; index++) {
+                    let element = titles[index];
+                    if (element.offsetTop >= scrollY && element.offsetTop <= scrollY + viewHeight) {
+                        if (index > 0) element = titles[index - 1];
+                        $("#post-toc .current").removeClass("current");
+                        $('a[href="#' + element.id + '"]').addClass('current')
+                        break
+                    }
                 }
             }
         }
