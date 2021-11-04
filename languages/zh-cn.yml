@@ -1,4 +1,5 @@
 post:
+  top: 置顶
   read_more: 阅读全文
   word_count: 共%s字
   min2read: 约%s分钟
