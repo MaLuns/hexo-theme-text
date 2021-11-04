@@ -25,7 +25,7 @@
 .linkDecorationMixin() {
     background     : linear-gradient(var(--linkDecorationColor, #8b959f66), var(--linkDecorationColor, #8b959f66)) bottom no-repeat;
     background-size: 100% .4em;
-    transition     : background-size var(--transitionTime, 0.3s ease);
+    transition     : background-size var(--transitionTime, 0.3s ease), color var(--transitionTime, 0.3s ease);
 
     &:hover {
         background-size: 100% 50%;
