@@ -14,9 +14,7 @@
             </h2>
             <div class="post-meta">
                 <% if(isHome && post.top){%>
-                    <span>
-                        「<%- __('post.top') %>」
-                    </span>
+                    <span class="post-top">「<%- __('post.top') %>」</span>
                 <%}%>
                 <span class="post-push-time">
                     <time datetime="<%= date_xml(post.date) %>" title="<%= date_xml(post.date) %>" itemprop="datePublished">
@@ -64,7 +62,7 @@
 </article>
 <% if(is_post()){%>
     <% if(theme.isToc){%>
-        <div id="post-toc" class="post-toc">
+        <div id="post-toc" class="post-toc single">
             <%- toc(page.content) %>
         </div>
     <%}%>

@@ -44,7 +44,7 @@ menu:
 sw: true
 
 # 开启文章目录
-isToc: false
+isToc: true
 
 # rss 地址
 rss: atom.xml
