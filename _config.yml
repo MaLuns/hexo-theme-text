@@ -21,25 +21,10 @@ post_wordcount:
   wordcount: true # 单篇 字数统计
   min2read: true # 单篇 阅读时长
 
-#开启 Service Worker
-sw: true
+# 是否固定头
+fixedHeader: true
 
-#开启文章目录
-isToc: false
-#
-canonical: true
-
-cdn:
-  css: 
-    - //at.alicdn.com/t/font_1518765_5jbj7btfht2.css
-  js:
-    - //cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js
-    - //cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js
-    - //cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js
-    - //at.alicdn.com/t/font_1518765_5jbj7btfht2.js
-    - //imgcache.qq.com/qcloud/tcbjs/1.6.0/tcb.js
-    - //cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js
-
+# 头部菜单
 menu:
   nav:
     - title: 🌈&nbsp;白云苍狗
@@ -55,4 +40,26 @@ menu:
     - title: 🪐&nbsp;虫洞
       url: //foreverblog.cn/go.html
 
+# 开启 Service Worker
+sw: true
+
+# 开启文章目录
+isToc: false
+
+# rss 地址
 rss: atom.xml
+
+#
+canonical: true
+
+# cdn 地址
+cdn:
+  css: 
+    - //at.alicdn.com/t/font_1518765_5jbj7btfht2.css
+  js:
+    - //cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js
+    - //cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js
+    - //cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js
+    - //at.alicdn.com/t/font_1518765_5jbj7btfht2.js
+    - //imgcache.qq.com/qcloud/tcbjs/1.6.0/tcb.js
+    - //cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js
