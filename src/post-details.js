@@ -8,7 +8,7 @@ function postDetails() {
                 $("#post-toc .current").removeClass("current");
                 $(this).addClass('current')
                 $('html, body').stop().animate({
-                    scrollTop: offset - 100
+                    scrollTop: offset - 120
                 }, 500);
             });
         }
