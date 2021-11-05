@@ -113,15 +113,14 @@ $(function () {
             }
         },
         toc() {
-            let viewHeight = window.innerHeight || document.documentElement.clientHeight
             let post = document.getElementsByClassName("post-content")[0]
             if (post) {
                 let titles = post.querySelectorAll('h1,h2,h3,h4,h5,h6')
                 let scrollY = window.scrollY
                 for (let index = 0; index < titles.length; index++) {
                     let element = titles[index];
-                    if (element.offsetTop >= scrollY && element.offsetTop <= scrollY + viewHeight) {
-                        if (index > 0) element = titles[index - 1];
+                    let nextElement = titles[index + 1];
+                    if (element.offsetTop <= scrollY + 120 && (!nextElement || nextElement.offsetTop - 120 > scrollY)) {
                         $("#post-toc .current").removeClass("current");
                         $('a[href="#' + element.id + '"]').addClass('current')
                         break

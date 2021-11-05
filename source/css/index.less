@@ -21,6 +21,7 @@ body {
 }
 
 @headerHeight : 80px;
+@footerHeight : 4em;
 
 /* 页眉 */
 .layout-header {
@@ -63,8 +64,8 @@ body {
         z-index   : 1;
         width     : 100%;
         transition: box-shadow .3s ease;
-        
-        &.show{
+
+        &.show {
             box-shadow: 0 0 20px 0 #0000001c;
         }
 
@@ -85,10 +86,11 @@ body {
 
 /* 主体 */
 .layout-main {
-    display  : block;
-    margin   : 0 auto;
-    max-width: 48em;
-    width    : 95%;
+    display   : block;
+    margin    : 0 auto;
+    max-width : 48em;
+    width     : 95%;
+    min-height: calc(100vh - @headerHeight - @footerHeight - 80px);
 
     article {
         padding      : 3em 0 3em 0;
@@ -136,7 +138,7 @@ body {
 .layout-footer {
     font-size : 14px;
     margin-top: 80px;
-    height    : 4em;
+    height    : @footerHeight;
     text-align: center;
 
     #since {
@@ -144,7 +146,7 @@ body {
     }
 
     a {
-        color: var(--postLinkColor, #6062ce);
+        // color: var(--postLinkColor, #6062ce);
         .linkDecorationMixin();
     }
 }
@@ -543,68 +545,64 @@ body {
 /* 文章导航 */
 .post-toc {
     position  : fixed;
-    right     : 2em;
     top       : calc(calc(100vh - @headerHeight) / 2 + @headerHeight);
-    max-width : calc(50vw - 30em);
+    left      : 0;
+    width     : 4em;
+    height    : fit-content;
     max-height: calc(100vh - @headerHeight);
-    overflow  : auto;
     transform : translateY(-50%);
     text-align: initial;
 
+
     ol {
         list-style : none;
-        margin-left: 1em;
+        user-select: none;
+        margin     : 0 1em 0 0;
 
         &.toc {
-            margin     : 10px 20px;
-            padding-top: 20px;
+            margin : 0;
+            padding: 0;
         }
 
-        a {
-            display: flex;
+        .toc-item {
 
-            &.current {
-                color                : var(--postLinkColor, #6062ce);
-                text-decoration-color: var(--postLinkColor, #6062ce);
-            }
-
-            .toc-text {
-                display      : inline-block;
-                white-space  : nowrap;
-                overflow     : hidden;
-                text-overflow: ellipsis;
-            }
-        }
-    }
-
-    &.single {
-        left    : 0;
-        right   : auto;
-        width   : 4em;
-        overflow: inherit;
-        height  : fit-content;
-
-        ol {
-            user-select: none;
-            margin     : 0 1em 0 0;
-
-            &.toc {
-                margin : 0;
-                padding: 0;
-            }
-
-            a {
+            .toc-link {
+                position        : relative;
+                display         : flex;
                 height          : 16px;
-                margin          : 0 0 5px 0;
-                color           : transparent !important;
+                margin          : 0 0 10px 0;
                 background-color: var(--tocBgColor, #eee);
-                border-radius   : 0 10px 10px 0;
+                border-radius   : 0 16px 16px 0;
 
                 &.current {
                     background-color: var(--postLinkColor, #6062ce);
                 }
+
+                .toc-tips {
+                    position        : absolute;
+                    left            : calc(100% + .5em);
+                    width           : max-content;
+                    top             : -4px;
+                    font-size       : 14px;
+                    background-color: rgb(var(--headBgColor));
+                    border-radius   : 6px;
+                    padding         : 0 .5em;
+                    line-height     : 24px;
+                    display         : none;
+                    box-shadow      : 8px -5px 12px 0 #00000036;
+                }
+
+                &:hover {
+                    .toc-tips {
+                        display: block;
+                    }
+                }
             }
+
+
         }
+
+
     }
 }
 

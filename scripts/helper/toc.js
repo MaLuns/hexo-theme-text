@@ -72,8 +72,7 @@ function tocHelper(str, options = {}) {
     for (let i = 0, len = data.length; i < len; i++) {
         const el = data[i];
         const { level, id, text } = el;
-        const href = id ? `#${encodeURL(id)}` : null;
-
+        const href = id ? `#${id}` : null;
         lastNumber[level - 1]++;
 
         for (let i = level; i <= 5; i++) {
@@ -96,12 +95,11 @@ function tocHelper(str, options = {}) {
 
         result += `<li class="${className}-item ${className}-level-${level}">`;
         if (href) {
-            result += `<a class="${className}-link" href="${href}"></a>`;
+            result += `<a class="${className}-link" href="${href}"><span class="${className}-tips">${text}</span></a>`;
         } else {
-            result += `<a class="${className}-link"></a>`;
+            result += `<a class="${className}-link"><span class="${className}-tips">${text}</span></a>`;
         }
-
-/* 
+        /* 
         if (listNumber) {
             result += `<span class="${className}-number">`;
 
@@ -113,7 +111,7 @@ function tocHelper(str, options = {}) {
         }
 
         result += `<span class="${className}-text">${text}</span></a>`;
- */
+         */
         lastLevel = level;
     }
 
