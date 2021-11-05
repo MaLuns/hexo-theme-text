@@ -1,7 +1,7 @@
 <div id="light-switch-mark" class="light-switch-mark">
     <div id="light-switch-mark-point" class="light-switch-mark-point"></div>
 </div>
-<header class="layout-header <%- theme.fixedHeader?'fixed':''%>">
+<header class="layout-header <%- theme.fixed_header?'fixed':''%>">
     <ul class="nav">
         <% theme.menu.nav.forEach(item=>{%>
         <li>
@@ -29,6 +29,3 @@
         </li>
     </nav>
 </header>
-<% if(theme.fixedHeader) { %>
-    <div class="layout-header_placeholder"></div>
-<%}%>

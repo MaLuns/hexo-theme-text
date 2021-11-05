@@ -91,18 +91,22 @@ $(function () {
             if (scrollTop + clientHeight > htmlHeight) {
                 app.LoadMore();
             }
-            if (scrollTop > 80) {
-                $(".layout-header").addClass('fixed')
-            } else {
-                $(".layout-header").removeClass('fixed')
+
+            if (window.CONFIG.fixed_header) {
+                if (scrollTop > 80) {
+                    $(".layout-header").addClass('fixed')
+                } else {
+                    $(".layout-header").removeClass('fixed')
+                }
             }
+
             if (scrollTop > 500) {
                 $("#back-top").addClass("show")
             } else {
                 $("#back-top").removeClass("show")
             }
 
-            if (window.CONFIG.isToc) {
+            if (window.CONFIG.is_toc) {
                 app.toc()
             }
         },
