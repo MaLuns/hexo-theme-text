@@ -1,6 +1,6 @@
 function postDetails() {
     $(document).ready(function () {
-        if (window.CONFIG.isToc) {
+        if (window.CONFIG.is_toc) {
             $('#post-toc a').on('click', function (e) {
                 e.preventDefault();
                 var offset = $(this.getAttribute('href')).offset().top;

@@ -1,4 +1,4 @@
-version: 1.0.10
+version: 1.0.11
 
 user:
   name: 白云苍狗
@@ -22,7 +22,7 @@ post_wordcount:
   min2read: true # 单篇 阅读时长
 
 # 是否固定头
-fixedHeader: true
+fixed_header: true
 
 # 头部菜单
 menu:
@@ -44,7 +44,7 @@ menu:
 sw: true
 
 # 开启文章目录
-isToc: true
+is_toc: true
 
 # rss 地址
 rss: atom.xml
