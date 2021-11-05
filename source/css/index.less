@@ -62,7 +62,11 @@ body {
         position  : fixed;
         z-index   : 1;
         width     : 100%;
-        box-shadow: 0 0 5px 0 #0000001c;
+        transition: box-shadow .3s ease;
+        
+        &.show{
+            box-shadow: 0 0 20px 0 #0000001c;
+        }
 
         &::before {
             @supports(backdrop-filter : blur(20px)) {
@@ -72,6 +76,11 @@ body {
             }
         }
     }
+}
+
+/* 绝对定位时 页眉 */
+.layout-header_placeholder {
+    height: @headerHeight;
 }
 
 /* 主体 */
@@ -534,10 +543,10 @@ body {
 /* 文章导航 */
 .post-toc {
     position  : fixed;
-    top       : 50vh;
     right     : 2em;
+    top       : calc(calc(100vh - @headerHeight) / 2 + @headerHeight);
     max-width : calc(50vw - 30em);
-    max-height: calc(100vh - 120px);
+    max-height: calc(100vh - @headerHeight);
     overflow  : auto;
     transform : translateY(-50%);
     text-align: initial;
@@ -570,7 +579,6 @@ body {
 
     &.single {
         left    : 0;
-        bottom  : 0;
         right   : auto;
         width   : 4em;
         overflow: inherit;
