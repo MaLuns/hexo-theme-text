@@ -94,9 +94,11 @@ $(function () {
 
             if (window.CONFIG.fixed_header) {
                 if (scrollTop > 80) {
-                    $(".layout-header").addClass('fixed')
+                    $(".layout-header").addClass('show')
+                    //$(".layout-header_placeholder").addClass('show')
                 } else {
-                    $(".layout-header").removeClass('fixed')
+                    $(".layout-header").removeClass('show')
+                    //$(".layout-header_placeholder").removeClass('show')
                 }
             }
 
