@@ -86,13 +86,14 @@ class ComComment extends HTMLElement {
                 this.textarea.focus(); return;
             }
 
-            let avatar = '';
-            if (/^[1-9][0-9]{6,}@qq.com/.test(email)) {
+            let avatar = new MD5().update(email).digest('hex');
+            // 去掉获取qq头像,直链会暴露qq号
+            /* if (/^[1-9][0-9]{6,}@qq.com/.test(email)) {
                 let qq = /^[1-9][0-9]{6,}/.exec(email)[0];
                 avatar = qq
             } else {
                 avatar = new MD5().update(email).digest('hex')
-            }
+            } */
             let { browser, version, os, osVersion } = this.detect;
             this._send({
                 url: location.pathname,
