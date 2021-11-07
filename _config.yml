@@ -1,4 +1,4 @@
-version: 1.0.11
+version: 1.0.12
 
 user:
   name: 白云苍狗
@@ -63,3 +63,8 @@ cdn:
     - //at.alicdn.com/t/font_1518765_5jbj7btfht2.js
     - //imgcache.qq.com/qcloud/tcbjs/1.6.0/tcb.js
     - //cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js
+
+# 头像配置
+avatar:
+  gravatar: https://gravatar.loli.net/avatar/
+  qq: https://q1.qlogo.cn/g?b=qq&s=100

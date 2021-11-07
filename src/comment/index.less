@@ -1,36 +1,40 @@
 @import url('../../source/css/mixin.less');
 
-.list {
-    padding: 0 20px 20px;
+.comment {
+    padding: 0 1em 1em;
     .commentColorMixin();
 
-    .list-content {
+    // 列表
+    .comment-list {
         >h3 {
             text-align: center;
         }
 
-        .c-item {
-            display   : flex;
-            padding   : 20px 0 10px 0;
-            opacity   : .5;
-            transition: opacity 0.3s ease;
+        .comment-item {
+            display      : flex;
+            padding      : 1.5em 0;
+            /* opacity   : .7;
+            transition   : opacity 0.3s ease; */
 
-            .user-img {
+            // 用户头像
+            .comment-user-avatar {
                 width        : 40px;
                 height       : 40px;
                 border-radius: 50%;
                 margin-right : 1em;
             }
 
-            .vh {
+            // 用户评论块
+            .comment-user-container {
                 flex    : 1;
                 overflow: hidden;
 
-                .c-head {
+                // 用户主要信息
+                .comment-user-info {
                     line-height: 1.5;
                     margin-top : 0;
 
-                    .c-nick {
+                    .comment-user-nick {
                         .hColorMixin();
                         position       : relative;
                         margin-right   : .875em;
@@ -39,7 +43,7 @@
                         display        : inline-block;
                     }
 
-                    .c-sys {
+                    .comment-user-sys {
                         .metaColorMixin();
                         display      : inline-block;
                         padding      : .2em .5em;
@@ -48,8 +52,8 @@
                         margin-right : .875em;
                     }
 
-                    .c-top,
-                    .c-tag {
+                    .comment-user-top,
+                    .comment-user-tag {
                         color           : #fff;
                         background-color: #723b9d;
                         display         : inline-block;
@@ -59,25 +63,26 @@
                         margin-right    : .875em;
                     }
 
-                    .c-top {
+                    .comment-user-top {
                         color           : #fff;
                         background-color: #593b17;
                     }
 
                 }
 
-                .c-meta {
+                // 用户次要信息
+                .comment-user-meta {
                     line-height: 1;
                     margin-top : 0.3em;
                     position   : relative;
 
-                    .c-time {
+                    .comment-time {
                         .metaColorMixin();
                         font-size   : .75em;
                         margin-right: .875em;
                     }
 
-                    .c-at {
+                    .comment-reply {
                         .hColorMixin();
                         font-size  : .8125em;
                         cursor     : pointer;
@@ -87,54 +92,59 @@
                     }
                 }
 
-                .c-content {
-                    margin: 10px 0;
+                // 用户评论内容
+                .comment-user-text {
+                    margin: .8em 0 0;
 
-                    .c-atlink {
+                    .comment-replylink {
                         .hColorMixin();
                     }
                 }
 
+                // 取消评论按钮
                 #close-btn {
                     display: inline-block;
                 }
             }
 
             &:hover {
-                opacity: 1;
+                //  opacity: 1;
 
-                >.vh>.c-meta>.c-at {
+                >.comment-user-container>.comment-user-meta>.comment-reply {
                     opacity: 1;
                 }
             }
 
-            +.c-item {
+            +.comment-item {
                 border-top: 1px dashed var(--dashedBorderColor, #c5c5c5);
             }
 
-            .c-item {
+            .comment-item {
                 &:first-child {
                     border-top: 1px dashed var(--dashedBorderColor, #c5c5c5);
                 }
             }
+        }
 
-            &.item-top::after {
-                content: "";
-            }
+        // 回复内容块
+        .comment-reply-container {
+            margin-top: 1.5em;
         }
     }
 
+    // 加载中
     #loading {
         .hColorMixin(fill, fill);
-        width  : 30px;
-        height : 30px;
+        width  : 2em;
+        height : 2em;
         display: none;
     }
 
+    // 加载更多
     #loadmore {
         cursor       : pointer;
-        width        : 30px;
-        height       : 30px;
+        width        : 2em;
+        height       : 2em;
         border-radius: 50%;
         .hColorMixin(fill, fill);
 
@@ -142,75 +152,55 @@
             box-shadow: 0 0 6px 0 #000;
         }
     }
-}
 
-.edit-content {
-    padding   : 20px;
-    transition: all var(--transitionTime, 0.3s ease);
+    // 评论编辑器
+    .comment-editor {
+        margin-top: 10px;
+        padding   : 5px 0 0;
+        border    : 1px dashed var(--dashedBorderColor, #c5c5c5);
+        transition: all var(--transitionTime, 0.3s ease);
 
-    .row {
-        display        : flex;
-        justify-content: space-around;
-    }
+        .row {
+            display        : flex;
+            justify-content: space-around;
+        }
 
-    .input-group {
-        border-bottom  : 1px dashed var(--dashedBorderColor, #c5c5c5);
-        display        : flex;
-        justify-content: center;
-        align-items    : center;
-        margin         : 0 10px;
-        padding        : 5px 0;
-        border-radius  : 3px;
-        flex           : 1;
+        // 输入框控制
+        .input-group {
+            border-bottom  : 1px dashed var(--dashedBorderColor, #c5c5c5);
+            display        : flex;
+            justify-content: center;
+            align-items    : center;
+            margin         : 0 10px;
+            padding        : 5px 0;
+            border-radius  : 3px;
+            flex           : 1;
 
-        .input-icon {
-            width     : 40px;
-            text-align: center;
-            display   : inline-block;
+            // 输入框 前缀图标
+            .input-icon {
+                width     : 40px;
+                text-align: center;
+                display   : inline-block;
 
-            .icon {
-                fill: var(--metaColor, #c5c5c5);
+                .icon {
+                    fill: var(--metaColor, #c5c5c5);
+                }
             }
-        }
 
-        ::-webkit-input-placeholder,
-        :-moz-placeholde,
-        ::-moz-placeholder,
-        :-ms-input-placeholder {
-            color: var(--metaColor, #c5c5c5);
-        }
-
-        input {
-            .metaColorMixin();
-            background: transparent;
-            width     : calc(100% - 50px);
-            height    : 30px;
-            border    : none;
-
-            &:focus {
-                outline-offset: 0px;
-                outline       : none;
+            ::-webkit-input-placeholder,
+            :-moz-placeholde,
+            ::-moz-placeholder,
+            :-ms-input-placeholder {
+                color: var(--metaColor, #c5c5c5);
             }
-        }
 
-        &.textarea {
-            width  : 100%;
-            border : 1px dashed var(--dashedBorderColor, #c5c5c5);
-            display: block;
-
-            textarea {
+            // 输入框
+            input {
                 .metaColorMixin();
-                box-sizing : border-box;
-                padding    : 10px;
-                background : transparent;
-                overflow   : hidden;
-                resize     : none;
-                border     : none;
-                font-size  : 16px;
-                width      : 100%;
-                min-height : 100px;
-                white-space: pre-wrap;
-                word-wrap  : break-word;
+                background: transparent;
+                width     : calc(100% - 50px);
+                height    : 30px;
+                border    : none;
 
                 &:focus {
                     outline-offset: 0px;
@@ -218,84 +208,158 @@
                 }
             }
 
-            #content_hidden {
-                pointer-events: none;
-                font-size     : 16px;
-                line-height   : 1;
-                word-wrap     : break-word;
+            &:focus,
+            &:focus-within,
+            &:focus-visible {
+                border-color: red;
+            }
+        }
 
-                &.hidden {
-                    opacity: 0;
+
+        .editor-container {
+            padding: 10px;
+            border : none;
+            display: block;
+
+            &.placeholder-shown::before {
+                content       : attr(placeholder);
+                color         : #99a2aa;
+                position      : absolute;
+                pointer-events: none;
+                font-size     : 14px;
+                line-height   : 22px;
+                letter-spacing: 1px;
+            }
+
+            &:focus,
+            &:focus-within {
+                &.placeholder-shown::before {
+                    display: none
+                }
+            }
+
+            .editor {
+                .metaColorMixin();
+                vertical-align: baseline;
+                outline       : none;
+                font-size     : 14px;
+                line-height   : 22px;
+                letter-spacing: 1px;
+                box-sizing    : border-box;
+                background    : transparent;
+                overflow      : hidden;
+                resize        : none;
+                border        : none;
+                width         : 100%;
+                min-height    : 100px;
+                white-space   : pre-wrap;
+                word-wrap     : break-word;
+            }
+        }
+
+        // 按钮
+        .btn {
+            cursor          : pointer;
+            user-select     : none;
+            transition      : all var(--transitionTime, 0.3s ease);
+            padding         : 4px 10px;
+            border          : 1px solid var(--dashedBorderColor, #c5c5c5);
+            color           : var(--commentColor);
+            margin-right    : 6px;
+            border-radius   : 3px;
+            background-color: transparent;
+
+            svg {
+                margin-right: 5px;
+                fill        : var(--commentColor);
+            }
+
+            &:focus {
+                outline-offset: 0px;
+                outline       : none;
+            }
+
+            &:hover {
+                transition: all var(--transitionTime, 0.3s ease);
+                color     : var(--postLinkColor);
+                border    : 1px solid var(--postLinkColor);
+
+                svg {
+                    fill: var(--postLinkColor)
                 }
             }
         }
-    }
 
-    .btn {
-        cursor       : pointer;
-        user-select  : none;
-        transition   : all var(--transitionTime, 0.3s ease);
-        padding      : 6px 10px;
-        border       : 1px solid #525f7f;
-        margin       : 0 8px;
-        border-radius: 3px;
-        font-weight  : 600;
-        color        : #525f7f;
-
-        svg {
-            width       : 20px;
-            height      : 20px;
-            margin-right: 5px;
-            fill        : #525f7f;
+        // 取消按钮
+        #close-btn {
+            display: none;
         }
 
-        &:focus {
-            outline-offset: 0px;
-            outline       : none;
+        .emojis-btn {
+            margin-top     : 20px;
+            display        : flex;
+            justify-content: space-between;
+            align-items    : center;
+
+
+            .emojis-container {
+                display    : flex;
+                align-items: center;
+                user-select: none;
+
+                .emoji-nav {
+                    cursor     : pointer;
+                    width      : 30px;
+                    height     : 30px;
+                    margin-left: 10px;
+
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
         }
 
-        &:hover {
-            transition: all var(--transitionTime, 0.3s ease);
-            border    : 1px solid #898e96;
-            background: #898e96;
-            color     : #fff;
+        .emojis-list {
+            margin     : 10px 0;
+            max-height : 180px;
+            overflow   : auto;
+            user-select: none;
 
-            svg {
-                fill: #fff
+            section {
+                padding: 0 10px;
+                display: none;
+
+                &.show {
+                    display: block;
+                }
+            }
+
+            .emoji-pic {
+                width: 38px;
             }
         }
     }
 
-    #close-btn {
-        display: none;
-    }
-}
-
-.emojis {
-    display      : none;
-    font-size    : 18px;
-    text-align   : justify;
-    max-height   : 145px;
-    overflow     : auto;
-    margin-bottom: 10px;
-    box-shadow   : 0px 0 1px #f0f0f0;
-
-    i {
+    // 表情图
+    .emoji-pic {
         font-style    : normal;
         padding       : 7px 0;
-        width         : 38px;
         cursor        : pointer;
         text-align    : center;
         display       : inline-block;
         vertical-align: middle;
-    }
-}
 
-.emoji-img {
-    max-width     : 25px;
-    vertical-align: bottom;
-    margin        : 0 1px;
-    display       : inline-block;
+        img {
+            width         : 26px;
+            height        : 26px;
+            overflow      : hidden;
+            vertical-align: middle;
+            margin        : 0 1px;
+            display       : inline-block;
+        }
+    }
+
 }
 
 
@@ -308,11 +372,11 @@
 }
 
 @media screen and (max-width:520px) {
-    .c-sys {
+    .comment-user-sys {
         display: none;
     }
 
-    .edit-content {
+    .comment-editor {
         .row {
             display: block;
 
@@ -340,7 +404,9 @@
     }
 }
 
-.c-content {
+// 评论内容 样式处理
+.comment-user-text {
+    font-size: .9em;
 
     //代码块
     pre {
@@ -351,7 +417,6 @@
         padding      : 40px 20px 10px;
         overflow     : auto;
         color        : #ccc !important;
-        font-size    : 14px;
         border-radius: 4px;
         line-height  : 20px;
 
@@ -386,27 +451,11 @@
 
     //引用
     blockquote {
-        border-radius: 6px;
-        border       : 1px solid rgba(64, 184, 250, 0.4);
-        background   : rgba(64, 184, 250, 0.1);
-        padding      : 10px 20px;
-        font-size    : 0.9em;
-        overflow     : auto;
-        margin       : 20px 0;
-
-        &::before {
-            content    : "❝";
-            color      : RGBA(64, 184, 250, .5);
-            font-size  : 34px;
-            line-height: 1;
-            font-weight: 700;
-        }
-
-        &::after {
-            content: "❞";
-            float  : right;
-            color  : RGBA(64, 184, 250, .5);
-        }
+        margin          : 0;
+        padding         : .6em 1em;
+        border-radius   : 4px;
+        border-left     : 5px solid var(--postLinkColor);
+        background-color: rgba(var(--headBgColor), .4);
     }
 
     a {
@@ -416,7 +465,7 @@
     }
 
     p {
-        margin: 10px 2px 10px;
+        margin: 0;
     }
 
     table {

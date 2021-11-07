@@ -32,16 +32,25 @@
     }
 }
 
+// 文章中链接
 .postLinkMixin() {
     font-size            : .9rem;
     padding              : 0 5px;
     text-decoration      : underline;
     color                : var(--postLinkColor, #6062ce);
     text-decoration-color: var(--postLinkColor, #6062ce);
+    transition           : color var(--transitionTime, 0.3s ease),
+        background-color var(--transitionTime, 0.3s ease);
 
     &:hover {
-        color          : var(--postLinkColorRreverse, #fff);
-        background     : var(--postLinkColor, #6062ce);
-        text-decoration: none;
+        color           : var(--postLinkColorRreverse, #fff);
+        background-color: var(--postLinkColor, #6062ce);
+        text-decoration : none;
     }
+}
+
+// 文本选中
+.selectText() {
+    color     : var(--postLinkColorRreverse, #fff);
+    background: var(--postLinkColor, #6062ce);
 }
