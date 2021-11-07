@@ -1,6 +1,21 @@
 import DOMPurify from 'dompurify';
+import { emojis } from '../emojis'
 
 export const regTest = (reg) => (str) => reg.test(str)
+
+export const getAvatarSrc = (avatar, tag) => {
+    let { gravatar, qq } = window.CONFIG.avatar
+    if (avatar.length == 32) {
+        return gravatar + avatar + '?d=mp'
+    }
+    if (/^[1-9][0-9]{6,}/.test(avatar)) {
+        return qq + `&nk=${avatar}`
+    }
+    if (tag) {
+        return '/images/c_avatar_2.png'
+    }
+    return '/images/c_avatar.png'
+}
 
 /**
  * 生成评论dom列表
@@ -15,39 +30,49 @@ export const createList = (data, parentid, idxpath) => {
         let topID = parentid || id;
         let ipath = _idxpath || (idxpath == undefined ? id : idxpath + ',' + index);
 
-        let dom = create('div', { class: `c-item ${item.top ? 'item-top' : ''}`, id })
-        let imgDom = create('img', { class: 'user-img', src: avatar || tag ? '/images/c_avatar_2.png' : '/images/c_avatar.png' });
-        let vhDom = create('div', { class: "vh" })
+        let commentItemDom = create('div', { class: `comment-item ${item.top ? 'item-top' : ''}`, id })
+        let userAvatar = create('img', { class: 'comment-user-avatar', src: getAvatarSrc(avatar, tag) });
+        let userCommentDom = create('div', { class: "comment-user-container" })
 
-
-        let headDom = create('div', { class: "c-head" })
+        let userInfo = create('div', { class: "comment-user-info" })
         let links = link ? rtest(link) ? link : 'http://' + link : ''
-        headDom.innerHTML += `${links ? `<a class="c-nick" rel="nofollow" href="${links}" target="_blank">${nick}</a>` : `<span class="c-nick">${nick}</span>`}`
-        headDom.innerHTML += tag ? `<span class="c-tag">${tag}</span>` : ''
-        headDom.innerHTML += top ? `<span class="c-top">置顶</span>` : ''
-        headDom.innerHTML += `<span class="c-sys">${browser}</span><span class="c-sys">${os}</span>`
+        userInfo.innerHTML += `${links ? `<a class="comment-user-nick" rel="nofollow" href="${links}" target="_blank">${nick}</a>` : `<span class="comment-user-nick">${nick}</span>`}`
+        userInfo.innerHTML += tag ? `<span class="comment-user-tag">${tag}</span>` : ''
+        userInfo.innerHTML += top ? `<span class="comment-user-top">置顶</span>` : ''
+        userInfo.innerHTML += `<span class="comment-user-sys">${browser}</span><span class="comment-user-sys">${os}</span>`
 
-        let metaDom = create('div', { class: "c-meta" })
-        metaDom.innerHTML = `<span class="c-time">${timeAgo(new Date(date))}</span><span class="c-at" data-topid='${topID}' data-idxpath='${ipath}' data-id='${id}'>回复</span>`
+        let userMeta = create('div', { class: "comment-user-meta" })
+        userMeta.innerHTML = `<span class="comment-time">${timeAgo(new Date(date))}</span><span class="comment-reply" data-topid='${topID}' data-idxpath='${ipath}' data-id='${id}'>回复</span>`
 
-        let contentDom = create('div', { class: "c-content", id: 'content' + id })
+        let userText = create('div', { class: "comment-user-text", id: 'content' + id })
         let atlink = at ? (rtest(at.link) ? at.link : 'http://' + at.link) : ''
 
-        let atdom = at ? `<div>${!!atlink ? `<a class="c-atlink" rel="nofollow" href="${atlink}" target="_blank">@${at.nick}</a>` : `<span class="c-atlink">@${at.nick}</span>`}</div>` : ''
-        contentDom.innerHTML = atdom + DOMPurify.sanitize(content);
+        let replyLinkDom = at ? `<div>${!!atlink ? `<a class="comment-replylink" rel="nofollow" href="${atlink}" target="_blank">@${at.nick}</a>` : `<span class="comment-replylink">@${at.nick}</span>`}</div>` : ''
+        userText.innerHTML = replyLinkDom + replaceEmote(DOMPurify.sanitize(content));
 
-        let editDom = create('div', { class: 'list-edit' })
+        appendChild(userCommentDom, userInfo, userMeta, userText)
+        if (childer) {
+            let replyContainer = create('div', { class: "comment-reply-container", id: 'reply' + id })
+            replyContainer.appendChild(createList(childer, topID, ipath))
+            appendChild(userCommentDom, replyContainer)
+        }
 
-        let quoteDom = create('div', { class: "c-quote", id: 'quote' + id })
-        if (childer) quoteDom.appendChild(createList(childer, topID, ipath))
-
-        appendChild(vhDom, headDom, metaDom, contentDom, editDom, quoteDom)
-        appendChild(dom, imgDom, vhDom);
-
-        fragment.appendChild(dom)
+        appendChild(commentItemDom, userAvatar, userCommentDom);
+        fragment.appendChild(commentItemDom)
     })
 
     return fragment;
+}
+
+/**
+ * 替换表情
+ * @param {*} str 
+ * @returns 
+ */
+export const replaceEmote = (str) => {
+    return str.replace(/\[[\u4E00-\u9FA5A-Za-z0-9_]{0,}\]/g, function (t) {
+        return createEmote(t)
+    })
 }
 
 /**
@@ -67,7 +92,145 @@ export const pathToData = (data, path, key = '') => {
     }
 }
 
+/**
+ * 表情tabs
+ * @returns 
+ */
+export const createEmotesNav = () => {
+    const fragment = document.createDocumentFragment();
+    emojis.forEach(item => {
+        let { id, text, url, emote } = item
+        let nav = create('nav', {
+            'data-package': id,
+            class: "emoji-nav"
+        })
 
+        appendChild(nav, create('img', {
+            'data-package': id,
+            title: text,
+            alt: text,
+            draggable: false,
+            referrerpolicy: "no-referrer",
+            src: url + '@112w_112h.webp',
+        }))
+
+        fragment.appendChild(nav)
+    })
+
+    return fragment
+}
+
+/**
+ * 表情包列表
+ * @param {*} packageid 
+ * @returns 
+ */
+export const createEmotesList = (packageid) => {
+    const fragment = document.createDocumentFragment();
+    const { emote = [] } = emojis.find(item => item.id === parseInt(packageid)) || {}
+    const section = create('section', { id: "emote_" + packageid })
+    emote.forEach(item => {
+        let i = create('i', {
+            class: "emoji-text emoji-pic",
+            'data-text': item.text,
+        })
+        appendChild(i, create('img', {
+            referrerpolicy: "no-referrer",
+            'data-text': item.text,
+            draggable: false,
+            src: item.gif_url || item.url,
+        }))
+        section.appendChild(i)
+    })
+    fragment.appendChild(section)
+    return fragment
+}
+
+/**
+ * 文本转表情
+ * @param {*} text 
+ * @returns 
+ */
+export const createEmote = (text) => {
+    let emotes = []
+    emojis.forEach(item => {
+        emotes.push(...item.emote)
+    })
+    let emote = emotes.find(item => item.text === text)
+    if (emote) {
+        return `<i class="emoji-text emoji-pic"><img src="${emote.gif_url || emote.url}" draggable="false" referrerpolicy="no-referrer"/></i>`
+    }
+    return text
+}
+
+/**
+ * 插入表情到光标处
+ * @param {*} edit 
+ * @param {*} val 
+ * @param {*} shadowRoot 
+ * @param {*} lastEditRange 
+ */
+export const insertAtCaret = (edit, val, shadowRoot, lastEditRange) => {
+    // 编辑框设置焦点
+    edit.focus()
+    // 获取选定对象
+    var selection = shadowRoot.getSelection()
+    // 判断是否有最后光标对象存在
+    if (lastEditRange) {
+        // 存在最后光标对象，选定对象清除所有光标并添加最后光标还原之前的状态
+        selection.removeAllRanges()
+        selection.addRange(lastEditRange)
+    }
+
+    // 判断选定对象范围是编辑框还是文本节点
+    if (selection.anchorNode.nodeName != '#text') {
+        // 如果是编辑框范围。则创建表情文本节点进行插入
+        var emojiText = document.createTextNode(val)
+
+        if (edit.childNodes.length > 0) {
+            // 如果文本框的子元素大于0，则表示有其他元素，则按照位置插入表情节点
+            for (var i = 0; i < edit.childNodes.length; i++) {
+                if (i == selection.anchorOffset) {
+                    edit.insertBefore(emojiText, edit.childNodes[i])
+                }
+            }
+        } else {
+            // 否则直接插入一个表情元素
+            edit.appendChild(emojiText)
+        }
+        // 创建新的光标对象
+        var range = document.createRange()
+        // 光标对象的范围界定为新建的表情节点
+        range.selectNodeContents(emojiText)
+        // 光标位置定位在表情节点的最大长度
+        range.setStart(emojiText, emojiText.length)
+        // 使光标开始和光标结束重叠
+        range.collapse(true)
+        // 清除选定对象的所有光标对象
+        selection.removeAllRanges()
+        // 插入新的光标对象
+        selection.addRange(range)
+    } else {
+        // 如果是文本节点则先获取光标对象
+        var range = selection.getRangeAt(0)
+        // 获取光标对象的范围界定对象，一般就是textNode对象
+        var textNode = range.startContainer;
+        // 获取光标位置
+        var rangeStartOffset = range.startOffset;
+        // 文本节点在光标位置处插入新的表情内容
+        textNode.insertData(rangeStartOffset, val)
+        // 光标移动到到原来的位置加上新内容的长度
+        range.setStart(textNode, rangeStartOffset + val.length)
+        // 光标开始和光标结束重叠
+        range.collapse(true)
+        // 清除选定对象的所有光标对象
+        selection.removeAllRanges()
+        // 插入新的光标对象
+        selection.addRange(range)
+    }
+    // 无论如何都要记录最后光标对象
+    lastEditRange = selection.getRangeAt(0)
+}
 
 /**
  * 创建dom
@@ -148,7 +311,12 @@ export const timeAgo = (date) => {
 }
 
 
-
+/**
+ * 格式时间
+ * @param {*} time 
+ * @param {*} fmt 
+ * @returns 
+ */
 export const format = (time, fmt) => {
     let o = {
         'M+': time.getMonth() + 1, // 月份
