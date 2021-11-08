@@ -2,7 +2,7 @@
     let isheaderbg = (post.headerbg && post.headerbg.length>0);
     let isHome= is_home();
 %>
-<article class="shadow animated fadeInUp <%- isHome?'':'detail-article' %>">
+<article class="shadow animated fadeInUp <%- isHome?'home-article':'detail-article' %>">
     <header class="post-header">
         <div class="post-container">
             <h2 class="post-title">
