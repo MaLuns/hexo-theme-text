@@ -93,9 +93,6 @@ body {
     min-height: calc(100vh - @headerHeight - @footerHeight - 80px);
 
     article {
-        padding      : 3em 0 3em 0;
-        border-bottom: 1px dashed var(--dashedBorderColor, #c5c5c5);
-
         &:last-child {
             border-bottom: none;
         }
@@ -290,8 +287,44 @@ body {
     }
 }
 
-/* 详情 */
+/* 首页文章卡片 */
+.posts-expand {
+    margin-top: 3em;
+
+    .home-article {
+        padding         : 1em;
+        margin          : 1em 0;
+        border-radius   : 4px;
+        background-color: var(--cardBgColor, #f9f9f9);
+        position        : relative;
+        overflow        : hidden;
+
+        &::after {
+            content           : " ";
+            position          : absolute;
+            border-radius     : 50%;
+            background        : #ff5f56;
+            width             : 50px;
+            height            : 50px;
+            top               : 0;
+            right             : 30%;
+            -webkit-box-shadow: 50px 0 #ffbd2e, 100px 0 #27c93f;
+            box-shadow        : 50px 0 #ffbd2e, 100px 0 #27c93f;
+            filter            : blur(80px);
+            opacity           : 0;
+            transition        : opacity var(--transitionTim, .3s ease);
+        }
+
+        &:hover::after {
+            opacity: 1;
+        }
+    }
+}
+
+/* 文章详情页 */
 .detail-article {
+    padding: 3em 0;
+
     .post-header {
         text-align    : center;
         padding-bottom: 10px;
