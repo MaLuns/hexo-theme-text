@@ -1,9 +1,17 @@
 <%# 分类页面 %>
 <%
 let title='';
-if(is_archive()){ title=__('post.archives');}
-else if(is_category()) { title=__('post.categories')+' - '+page.category ;} 
-else if(is_tag()) { title=__('post.tag')+' - '+page.tag;} 
+let posts=page.posts;
+if(is_archive()){ 
+    title=__('post.archives');
+}
+else if(is_category()) { 
+    title=__('post.categories')+' - '+page.category ;
+    posts=get_categories(page.category);
+} 
+else if(is_tag()) { 
+    title=__('post.tag')+' - '+page.tag;
+} 
 %>
 <article class="archives">
     <header class="post-header">
@@ -20,7 +28,7 @@ else if(is_tag()) { title=__('post.tag')+' - '+page.tag;}
     <%}%>
 
     <div class="timeline">
-        <% var lastDate;page.posts.forEach(function(element) { %>
+        <% var lastDate;posts.forEach(function(element) { %>
             <%var vdate=date(element.date,'YYYY');%>
             <%if(lastDate !=vdate) {%>
                 <div class="timeline-item">
