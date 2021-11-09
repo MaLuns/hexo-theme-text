@@ -1,39 +1,215 @@
 :root {
-    --transitionTime       : .35s ease; // 过渡时间
-    --hColor               : #000000; // 主要字体色
-    --metaColor            : #5c5c5c; // 次要信息颜色
-    --bodyBgColor          : #ffffff; // 主题背景色
-    --headBgColor          : 241, 241, 241; // 头部背景色
-    --cardBgColor          : #fafafa; // 卡片背景色
-    --markHeadBgColor      : #eeeeee; // 动画切换遮罩色
-    --markBgColor          : #252525; // 动画切换遮罩色
-    --commentColor         : #525f7f; // 评论组建主题色
-    --dashedBorderColor    : #c5c5c5; // 分割边框色
-    --postLinkColor        : #6062ce; // 文章中超链接
-    --postLinkColorRreverse: #ffffff; // 文章中超链接hover 时颜色
-    --nprogressColor       : #756dbb; // 加载进度条色
-    --linkItemBgColor      : #fafafa; // 友链背景色
-    --linkItemBgColor2     : #f2f2f2; // 友链hover背景色
-    --linkDecorationColor  : #8b959f66; // 链接下划线颜色
-    --ngBarBgColor         : #5873ca; // 加载进度条颜色
-    --tocBgColor           : #eeeeee; // 简约目录时 背景色
+    // contrast 反色
+    // shade 阴影色
+    // tint 浅色
+
+    --transitionTime         : .35s ease; // 过渡时间
+    // 主要字体色
+    --color-font             : #1a1a1a;
+    --color-font-rgb         : 26,26,26;
+    --color-font-contrast    : #ffffff;
+    --color-font-contrast-rgb: 255,255,255;
+    --color-font-shade       : #171717;
+    --color-font-tint        : #313131;
+
+    // 次要信息颜色
+    --color-meta             : #5c5c5c;
+    --color-meta-rgb         : 92, 92, 92;
+    --color-meta-contrast    : #ffffff;
+    --color-meta-contrast-rgb: 255, 255, 255;
+    --color-meta-shade       : #515151;
+    --color-meta-tint        : #6c6c6c;
+
+    // 主背景色
+    --color-body-bg             : #ffffff;
+    --color-body-bg-rgb         : 255, 255, 255;
+    --color-body-bg-contrast    : #000000;
+    --color-body-bg-contrast-rgb: 0, 0, 0;
+    --color-body-bg-shade       : #e0e0e0;
+    --color-body-bg-tint        : #ffffff;
+
+    // 头部背景色
+    --color-head-bg             : #f1f1f1;
+    --color-head-bg-rgb         : 241, 241, 241;
+    --color-head-bg-contrast    : #000000;
+    --color-head-bg-contrast-rgb: 0, 0, 0;
+    --color-head-bg-shade       : #d4d4d4;
+    --color-head-bg-tint        : #f2f2f2;
+
+    // 卡片背景色
+    --color-card-bg             : #fafafa;
+    --color-card-bg-rgb         : 250, 250, 250;
+    --color-card-bg-contrast    : #000000;
+    --color-card-bg-contrast-rgb: 0, 0, 0;
+    --color-card-bg-shade       : #dcdcdc;
+    --color-card-bg-tint        : #fbfbfb;
+
+    // 动画切换遮罩色
+    --color-mark-head-bg             : #eeeeee;
+    --color-mark-head-bg-rgb         : 238, 238, 238;
+    --color-mark-head-bg-contrast    : #000000;
+    --color-mark-head-bg-contrast-rgb: 0, 0, 0;
+    --color-mark-head-bg-shade       : #d1d1d1;
+    --color-mark-head-bg-tint        : #f0f0f0;
+
+    // 动画切换遮罩色
+    --color-mark-head-bg             : #252525;
+    --color-mark-head-bg-rgb         : 37, 37, 37;
+    --color-mark-head-bg-contrast    : #ffffff;
+    --color-mark-head-bg-contrast-rgb: 255, 255, 255;
+    --color-mark-head-bg-shade       : #212121;
+    --color-mark-head-bg-tint        : #3b3b3b;
+
+    // 评论组建主题色
+    --color-comment             : #525f7f;
+    --color-comment-rgb         : 82, 95, 127;
+    --color-comment-contrast    : #ffffff;
+    --color-comment-contrast-rgb: 255, 255, 255;
+    --color-comment-shade       : #485470;
+    --color-comment-tint        : #636f8c;
+
+    // 分割边框色
+    --color-dashed             : #c5c5c5;
+    --color-dashed-rgb         : 197, 197, 197;
+    --color-dashed-contrast    : #000000;
+    --color-dashed-contrast-rgb: 0, 0, 0;
+    --color-dashed-shade       : #adadad;
+    --color-dashed-tint        : #cbcbcb;
+
+    // 文章中超链接
+    --color-link             : #6062ce;
+    --color-link-rgb         : 96, 98, 206;
+    --color-link-contrast    : #ffffff;
+    --color-link-contrast-rgb: 255, 255, 255;
+    --color-link-shade       : #5456b5;
+    --color-link-tint        : #7072d3;
+
+    //  友链背景色
+    --color-link-item-bg             : #fafafa;
+    --color-link-item-bg-rgb         : 250, 250, 250;
+    --color-link-item-bg-contrast    : #000000;
+    --color-link-item-bg-contrast-rgb: 0, 0, 0;
+    --color-link-item-bg-shade       : #dcdcdc;
+    --color-link-item-bg-tint        : #f3f3f3;
+
+    // 链接下划线颜色
+    --color-link-decoration             : var(--color-link);
+    --color-link-decoration-rgb         : var(--color-link-rgb);
+    --color-link-decoration-contrast    : var(--color-link-contrast);
+    --color-link-decoration-contrast-rgb: var(--color-link-contrast-rgb);
+    --color-link-decoration-shade       : var(--color-link-shade);
+    --color-link-decoration-tint        : var(--color-link-tint);
+
+    // 加载进度条颜色
+    --color-ng-bar-bg             : #5873ca;
+    --color-ng-bar-bg-rgb         : 88, 115, 202;
+    --color-ng-bar-bg-contrast    : #ffffff;
+    --color-ng-bar-bg-contrast-rgb: 255, 255, 255;
+    --color-ng-bar-bg-shade       : #4d65b2;
+    --color-ng-bar-bg-tint        : #6981cf;
+
+    // 目录背景色
+    --color-toc-bg             : #eeeeee;
+    --color-toc-bg-rgb         : 238, 238, 238;
+    --color-toc-bg-contrast    : #000000;
+    --color-toc-bg-contrast-rgb: 0, 0, 0;
+    --color-toc-bg-shade       : #d1d1d1;
+    --color-toc-bg-tint        : #f0f0f0;
+
 
     &.dark {
-        --hColor               : #f2f3f0;
-        --metaColor            : #e6e6e6;
-        --bodyBgColor          : #252525;
-        --headBgColor          : 29, 29, 29;
-        --cardBgColor          : #222222;
-        --markHeadBgColor      : #353535;
-        --markBgColor          : #f2f3f0;
-        --commentColor         : #8b8b8b;
-        --nprogressColor       : #fff3e5;
-        --linkItemBgColor      : #353535;
-        --linkItemBgColor2     : #484848;
-        --linkDecorationColor  : #a7a7a7;
-        --postLinkColor        : #e4e4e4;
-        --postLinkColorRreverse: #000000;
-        --tocBgColor           : #6a6a6a;
+        --color-font             : #dddddd;;
+        --color-font-rgb         : 221, 221, 221;
+        --color-font-contrast    : #000000;
+        --color-font-contrast-rgb: 0, 0, 0;
+        --color-font-shade       : #c2c2c2;
+        --color-font-tint        : #e0e0e0;
+
+        --color-meta             : #e6e6e6;
+        --color-meta-rgb         : 230, 230, 230;
+        --color-meta-contrast    : #000000;
+        --color-meta-contrast-rgb: 0, 0, 0;
+        --color-meta-shade       : #cacaca;
+        --color-meta-tint        : #e9e9e9;
+
+        --color-body-bg             : #252525;
+        --color-body-bg-rgb         : 37, 37, 37;
+        --color-body-bg-contrast    : #ffffff;
+        --color-body-bg-contrast-rgb: 255, 255, 255;
+        --color-body-bg-shade       : #212121;
+        --color-body-bg-tint        : #3b3b3b;
+
+        --color-head-bg             : #1d1d1d;
+        --color-head-bg-rgb         : 29, 29, 29;
+        --color-head-bg-contrast    : #ffffff;
+        --color-head-bg-contrast-rgb: 255, 255, 255;
+        --color-head-bg-shade       : #1a1a1a;
+        --color-head-bg-tint        : #343434;
+
+        --color-card-bg             : #222222;
+        --color-card-bg-rgb         : 34, 34, 34;
+        --color-card-bg-contrast    : #ffffff;
+        --color-card-bg-contrast-rgb: 255, 255, 255;
+        --color-card-bg-shade       : #1e1e1e;
+        --color-card-bg-tint        : #383838;
+
+        --color-mark-head-bg             : #353535;
+        --color-mark-head-bg-rgb         : 53, 53, 53;
+        --color-mark-head-bg-contrast    : #ffffff;
+        --color-mark-head-bg-contrast-rgb: 255, 255, 255;
+        --color-mark-head-bg-shade       : #2f2f2f;
+        --color-mark-head-bg-tint        : #494949;
+
+        --color-mark-head-bg             : #f2f3f0;
+        --color-mark-head-bg-rgb         : 242, 243, 240;
+        --color-mark-head-bg-contrast    : #000000;
+        --color-mark-head-bg-contrast-rgb: 0, 0, 0;
+        --color-mark-head-bg-shade       : #d5d6d3;
+        --color-mark-head-bg-tint        : #f3f4f2;
+
+        --color-comment             : #8b8b8b;
+        --color-comment-rgb         : 139, 139, 139;
+        --color-comment-contrast    : #000000;
+        --color-comment-contrast-rgb: 0, 0, 0;
+        --color-comment-shade       : #7a7a7a;
+        --color-comment-tint        : #979797;
+
+        --color-link-item-bg             : #353535;
+        --color-link-item-bg-rgb         : 53, 53, 53;
+        --color-link-item-bg-contrast    : #ffffff;
+        --color-link-item-bg-contrast-rgb: 255, 255, 255;
+        --color-link-item-bg-shade       : #2f2f2f;
+        --color-link-item-bg-tint        : #494949;
+
+        --color-link             : #e4e4e4;
+        --color-link-rgb         : 228, 228, 228;
+        --color-link-contrast    : #000000;
+        --color-link-contrast-rgb: 0, 0, 0;
+        --color-link-shade       : #c9c9c9;
+        --color-link-tint        : #e7e7e7;
+
+        --color-link-decoration: #a7a7a7;
+        --color-link-decoration-rgb: 167,167,167;
+        --color-link-decoration-contrast: #000000;
+        --color-link-decoration-contrast-rgb: 0,0,0;
+        --color-link-decoration-shade: #939393;
+        --color-link-decoration-tint: #b0b0b0;
+
+
+        --color-ng-bar-bg             : #fff3e5;
+        --color-ng-bar-bg-rgb         : 255, 243, 229;
+        --color-ng-bar-bg-contrast    : #000000;
+        --color-ng-bar-bg-contrast-rgb: 0, 0, 0;
+        --color-ng-bar-bg-shade       : #e0d6ca;
+        --color-ng-bar-bg-tint        : #fff4e8;
+
+
+        --color-toc-bg             : #6a6a6a;
+        --color-toc-bg-rgb         : 106, 106, 106;
+        --color-toc-bg-contrast    : #ffffff;
+        --color-toc-bg-contrast-rgb: 255, 255, 255;
+        --color-toc-bg-shade       : #5d5d5d;
+        --color-toc-bg-tint        : #797979;
     }
 }
 
