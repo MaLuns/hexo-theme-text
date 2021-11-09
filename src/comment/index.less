@@ -116,14 +116,14 @@
             }
 
             +.comment-item {
-                border-top: 1px dashed var(--dashedBorderColor, #c5c5c5);
+                border-top: 1px dashed var(--color-dashed, #c5c5c5);
             }
 
             .comment-item {
                 padding: 1.5em 0 0;
 
                 &:first-child {
-                    border-top: 1px dashed var(--dashedBorderColor, #c5c5c5);
+                    border-top: 1px dashed var(--color-dashed, #c5c5c5);
                 }
             }
         }
@@ -163,7 +163,7 @@
     .comment-editor {
         margin-top: 10px;
         padding   : 5px 0 0;
-        border    : 1px dashed var(--dashedBorderColor, #c5c5c5);
+        border    : 1px dashed var(--color-dashed, #c5c5c5);
         transition: all var(--transitionTime, 0.3s ease);
 
         .row {
@@ -173,7 +173,7 @@
 
         // 输入框控制
         .input-group {
-            border-bottom  : 1px dashed var(--dashedBorderColor, #c5c5c5);
+            border-bottom  : 1px dashed var(--color-dashed, #c5c5c5);
             display        : flex;
             justify-content: center;
             align-items    : center;
@@ -189,7 +189,7 @@
                 display   : inline-block;
 
                 .icon {
-                    fill: var(--metaColor, #c5c5c5);
+                    fill: var(--color-meta, #c5c5c5);
                 }
             }
 
@@ -197,7 +197,7 @@
             :-moz-placeholde,
             ::-moz-placeholder,
             :-ms-input-placeholder {
-                color: var(--metaColor, #c5c5c5);
+                color: var(--color-meta, #c5c5c5);
             }
 
             // 输入框
@@ -270,15 +270,15 @@
             user-select     : none;
             transition      : all var(--transitionTime, 0.3s ease);
             padding         : 4px 10px;
-            border          : 1px solid var(--dashedBorderColor, #c5c5c5);
-            color           : var(--commentColor);
+            border          : 1px solid var(--color-dashed, #c5c5c5);
+            color           : var(--color-comment );
             margin-right    : 6px;
             border-radius   : 3px;
             background-color: transparent;
 
             svg {
                 margin-right: 5px;
-                fill        : var(--commentColor);
+                fill        : var(--color-comment );
             }
 
             &:focus {
@@ -288,11 +288,11 @@
 
             &:hover {
                 transition: all var(--transitionTime, 0.3s ease);
-                color     : var(--postLinkColor);
-                border    : 1px solid var(--postLinkColor);
+                color     : var(--color-link);
+                border    : 1px solid var(--color-link);
 
                 svg {
-                    fill: var(--postLinkColor)
+                    fill: var(--color-link)
                 }
             }
         }
@@ -461,8 +461,8 @@
         margin          : 0;
         padding         : .6em 1em;
         border-radius   : 4px;
-        border-left     : 5px solid var(--postLinkColor);
-        background-color: rgba(var(--headBgColor), .4);
+        border-left     : 5px solid var(--color-link);
+        background-color: rgba(var(--color-head-bg-rgb), .4);
     }
 
     a {

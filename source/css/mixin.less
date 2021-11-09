@@ -6,24 +6,24 @@
 
 // 颜色过渡混入
 .hColorMixin(@attr: color, @transition: color) {
-    .attrTransitionMixin(var(--hColor, #000), @attr, @transition);
+    .attrTransitionMixin(var(--color-font, #000), @attr, @transition);
 }
 
 .metaColorMixin(@attr: color, @transition: color) {
-    .attrTransitionMixin(var(--metaColor, #5c5c5c), @attr, @transition);
+    .attrTransitionMixin(var(--color-meta, #5c5c5c), @attr, @transition);
 }
 
 .bodyBgColorMixin(@attr: color, @transition: color) {
-    .attrTransitionMixin(var(--bodyBgColor, #f2f3f0), @attr, @transition);
+    .attrTransitionMixin(var(--color-body-bg, #f2f3f0), @attr, @transition);
 }
 
 .commentColorMixin(@attr: color, @transition: color) {
-    .attrTransitionMixin(var(--commentColor, #525f7f), @attr, @transition);
+    .attrTransitionMixin(var(--color-comment , #525f7f), @attr, @transition);
 }
 
 // 链接 下划线
 .linkDecorationMixin() {
-    background     : linear-gradient(var(--linkDecorationColor, #8b959f66), var(--linkDecorationColor, #8b959f66)) bottom no-repeat;
+    background     : linear-gradient(rgba(var(--color-link-decoration-rgb),.4), rgba(var(--color-link-decoration-rgb),.4)) bottom no-repeat;
     background-size: 100% .4em;
     transition     : background-size var(--transitionTime, 0.3s ease), color var(--transitionTime, 0.3s ease);
 
@@ -37,20 +37,20 @@
     font-size            : .9rem;
     padding              : 0 5px;
     text-decoration      : underline;
-    color                : var(--postLinkColor, #6062ce);
-    text-decoration-color: var(--postLinkColor, #6062ce);
+    color                : var(--color-link, #6062ce);
+    text-decoration-color: var(--color-link, #6062ce);
     transition           : color var(--transitionTime, 0.3s ease),
         background-color var(--transitionTime, 0.3s ease);
 
     &:hover {
-        color           : var(--postLinkColorRreverse, #fff);
-        background-color: var(--postLinkColor, #6062ce);
+        color           : var(--color-link-contrast, #fff);
+        background-color: var(--color-link, #6062ce);
         text-decoration : none;
     }
 }
 
 // 文本选中
 .selectText() {
-    color     : var(--postLinkColorRreverse, #fff);
-    background: var(--postLinkColor, #6062ce);
+    color     : var(--color-link-contrast, #fff);
+    background: var(--color-link, #6062ce);
 }

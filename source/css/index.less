@@ -55,7 +55,7 @@ body {
         top             : 0;
         height          : @headerHeight;
         width           : 100%;
-        background-color: rgb(var(--headBgColor));
+        background-color: var(--color-head-bg);
         transition      : background-color .3s ease;
     }
 
@@ -71,7 +71,7 @@ body {
 
         &::before {
             @supports(backdrop-filter : blur(20px)) {
-                background-color       : rgba(var(--headBgColor), .4);
+                background-color       : rgba(var(--color-head-bg-rgb), .4);
                 -webkit-backdrop-filter: blur(20px);
                 backdrop-filter        : blur(20px);
             }
@@ -93,17 +93,14 @@ body {
     min-height: calc(100vh - @headerHeight - @footerHeight - 80px);
 
     article {
-        &:last-child {
-            border-bottom: none;
-        }
-
+        padding: 2em 0;
         .post-header {
             .post-title {
                 display    : block;
                 margin-left: -10px;
 
                 a {
-                    font-size      : 1.2rem;
+                    font-size      : 1.1rem;
                     text-decoration: none;
 
                     &:hover {
@@ -143,7 +140,6 @@ body {
     }
 
     a {
-        // color: var(--postLinkColor, #6062ce);
         .linkDecorationMixin();
     }
 }
@@ -160,13 +156,13 @@ body {
 
     .linf-info {
         padding   : 2em 0;
-        border-top: 1px dashed var(--dashedBorderColor, #c5c5c5);
+        border-top: 1px dashed var(--color-dashed, #c5c5c5);
     }
 
     .links-list {
         padding      : 2em 0;
-        border-top   : 1px dashed var(--dashedBorderColor, #c5c5c5);
-        border-bottom: 1px dashed var(--dashedBorderColor, #c5c5c5);
+        border-top   : 1px dashed var(--color-dashed, #c5c5c5);
+        border-bottom: 1px dashed var(--color-dashed, #c5c5c5);
 
         .links-list-item {
             list-style      : none !important;
@@ -174,7 +170,7 @@ body {
             padding         : 10px 0;
             border-radius   : 5px;
             transition      : all var(--transitionTim, .3s ease);
-            background-color: var(--linkItemBgColor, #f9f9f9);
+            background-color: var(--color-link-item-bg, #f9f9f9);
             margin-bottom   : 3px;
 
             >a {
@@ -208,7 +204,7 @@ body {
             }
 
             &:hover {
-                background-color: var(--linkItemBgColor2, #fff);
+                background-color: var(--color-link-item-bg-tint, #fff);
             }
         }
     }
@@ -293,13 +289,18 @@ body {
 
     .home-article {
         padding         : 1em;
-        margin          : 1em 0;
+        margin          : 2em 0;
         border-radius   : 4px;
-        background-color: var(--cardBgColor, #f9f9f9);
+        background-color: var(--color-card-bg, #f9f9f9);
         position        : relative;
         overflow        : hidden;
+        transition      : transform var(--transitionTim, .3s ease),box-shadow var(--transitionTim, .3s ease);
 
-        &::after {
+        &:hover{
+            // transform : scale(105%);
+            box-shadow: 0 0 20px 0 rgba(var(--color-card-bg-contrast-rgb),.1);
+        }
+        /* &::after {
             content           : " ";
             position          : absolute;
             border-radius     : 50%;
@@ -317,7 +318,7 @@ body {
 
         &:hover::after {
             opacity: 1;
-        }
+        } */
     }
 }
 
@@ -328,7 +329,7 @@ body {
     .post-header {
         text-align    : center;
         padding-bottom: 10px;
-        border-bottom : 1px dashed var(--dashedBorderColor, #c5c5c5);
+        border-bottom : 1px dashed var(--color-dashed, #c5c5c5);
         width         : max-content;
         margin        : 0 auto 3em;
 
@@ -549,8 +550,8 @@ body {
     height          : 100vh;
     left            : 0;
     right           : 0;
-    background-color: var(--markBgColor, #252525);
-    // background: linear-gradient(var(--markHeadBgColor), var(--markHeadBgColor) @headerHeight, var(--markBgColor) @headerHeight, var(--markBgColor));
+    background-color: var(--color-mark-head-bg , #252525);
+    // background: linear-gradient(var(--color-mark-head-bg), var(--color-mark-head-bg) @headerHeight, var(--color-mark-head-bg ) @headerHeight, var(--color-mark-head-bg ));
     opacity         : 0;
     z-index         : -1;
     overflow        : hidden;
@@ -558,7 +559,7 @@ body {
     .light-switch-mark-point {
         position        : absolute;
         border-radius   : 50%;
-        background-color: var(--bodyBgColor, #eee);
+        background-color: var(--color-body-bg, #eee);
         width           : 100px;
         height          : 100px;
         top             : 15px;
@@ -604,11 +605,11 @@ body {
                 display         : flex;
                 height          : 16px;
                 margin          : 0 0 10px 0;
-                background-color: var(--tocBgColor, #eee);
+                background-color: var(--color-toc-bg, #eee);
                 border-radius   : 0 16px 16px 0;
 
                 &.current {
-                    background-color: var(--postLinkColor, #6062ce);
+                    background-color: var(--color-link, #6062ce);
                 }
 
                 .toc-tips {
@@ -617,7 +618,7 @@ body {
                     width           : max-content;
                     top             : -4px;
                     font-size       : 14px;
-                    background-color: rgb(var(--headBgColor));
+                    background-color: var(--color-head-bg);
                     border-radius   : 6px;
                     padding         : 0 .5em;
                     line-height     : 24px;
