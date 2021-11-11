@@ -252,6 +252,13 @@ class ComComment extends HTMLElement {
 
                 } else {
                     let con = this.shadowRoot.querySelector("#reply" + this.atComment.topID);
+                    if (!con) {
+                        // 如果不存在回复容器 先创建一个
+                        con = create('div', {
+                            id: "reply" + this.atComment.topID
+                        })
+                        this.shadowRoot.querySelector(`#container${this.atComment.topID}`).appendChild(con);
+                    }
                     param._idxpath = this.atComment.topID + ',' + con.children.length
                     con.appendChild(createList([param], this.atComment.topID))
                     let _com = this._commentList.find(item => item.id === this.atComment.topID)

@@ -32,7 +32,7 @@ export const createList = (data, parentid, idxpath) => {
 
         let commentItemDom = create('div', { class: `comment-item ${item.top ? 'item-top' : ''}`, id })
         let userAvatar = create('img', { class: 'comment-user-avatar', src: getAvatarSrc(avatar, tag) });
-        let userCommentDom = create('div', { class: "comment-user-container" })
+        let userCommentDom = create('div', { class: "comment-user-container", id: "container" + id })
 
         let userInfo = create('div', { class: "comment-user-info" })
         let links = link ? rtest(link) ? link : 'http://' + link : ''
@@ -249,10 +249,13 @@ export const create = (name, attrs) => {
  * @param {*} attrs 
  */
 export const addAttr = (el, attrs) => {
-    for (const key in attrs) {
-        if (attrs.hasOwnProperty(key)) {
-            el.setAttribute(key, attrs[key])
+    try {
+        for (const key in attrs) {
+            if (attrs.hasOwnProperty(key)) {
+                el.setAttribute(key, attrs[key])
+            }
         }
+    } catch (error) {
     }
 }
 
