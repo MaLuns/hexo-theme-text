@@ -12,10 +12,12 @@ function postDetails() {
                 }, 500);
             });
         }
-        mediumZoom('article img', {
-            margin: 24,
-            background: '#00000077',
-            scrollOffset: 0
+
+        $("article img").each(function () {
+            var element = document.createElement("span");
+            $(element).attr("data-fancybox", "gallery");
+            $(element).attr("href", $(this).attr("src"));
+            $(this).wrap(element);
         })
     });
 }
