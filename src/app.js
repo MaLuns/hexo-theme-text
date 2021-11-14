@@ -136,9 +136,4 @@ $(function () {
     app.initSettingEvent();
     app.scroll();
 
-    mediumZoom('article img', {
-        margin: 24,
-        background: '#00000077',
-        scrollOffset: 0
-    })
 })
