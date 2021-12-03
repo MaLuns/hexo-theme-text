@@ -95,9 +95,9 @@ function tocHelper(str, options = {}) {
 
         result += `<li class="${className}-item ${className}-level-${level}">`;
         if (href) {
-            result += `<a class="${className}-link" href="${href}"><span class="${className}-tips">${text}</span></a>`;
+            result += `<a rel="nofollow" class="${className}-link" href="${href}"><span class="${className}-tips">${text}</span></a>`;
         } else {
-            result += `<a class="${className}-link"><span class="${className}-tips">${text}</span></a>`;
+            result += `<a rel="nofollow" class="${className}-link"><span class="${className}-tips">${text}</span></a>`;
         }
         /* 
         if (listNumber) {
