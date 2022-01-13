@@ -41,7 +41,7 @@
         content: "";
         transition: all var(--transitionTime, 0.3s ease) 0s;
         z-index: -1;
-        left: 1px;
+        left: 50%;
         bottom: 0px;
         width: 0px;
         height: 8px;
@@ -49,8 +49,8 @@
     }
 
     &:hover::before {
-        width: 72%;
-        left: 0px
+        width: 100%;
+        left: 0
     }
 
     &.active {
