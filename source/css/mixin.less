@@ -32,6 +32,32 @@
     }
 }
 
+//
+.linkDecorationAnimationMixin() {
+    position: relative;
+
+    &::before {
+        position: absolute;
+        content: "";
+        transition: all var(--transitionTime, 0.3s ease) 0s;
+        z-index: -1;
+        left: 1px;
+        bottom: 0px;
+        width: 0px;
+        height: 8px;
+        background-color: rgba(var(--color-link-decoration-rgb),.4);
+    }
+
+    &:hover::before {
+        width: 72%;
+        left: 0px
+    }
+
+    &.active {
+        background-color: rgba(var(--color-link-decoration-rgb),.4);
+    }
+}
+
 // 文章中链接
 .postLinkMixin() {
     font-size            : .9rem;
