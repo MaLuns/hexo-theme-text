@@ -41,9 +41,9 @@ body {
             margin : 0 1.2em;
             height : 30px;
 
-            a {
+            /* a {
                 .linkDecorationAnimationMixin()
-            }
+            } */
         }
     }
 
@@ -66,7 +66,7 @@ body {
         transition: box-shadow .3s ease;
 
         &.show {
-            box-shadow: 0 0 20px 0 #0000001c;
+            box-shadow: #0000001a 0px 10px 15px -3px, #0000001a 0px 4px 6px -4px;
         }
 
         &::before {
@@ -93,7 +93,6 @@ body {
     min-height: calc(100vh - @headerHeight - @footerHeight - 80px);
 
     article {
-        padding: 2em 0;
         .post-header {
             .post-title {
                 display    : block;
@@ -102,27 +101,19 @@ body {
                 a {
                     font-size      : 1.1rem;
                     text-decoration: none;
-
-                    &:hover {
-                        letter-spacing: 1px;
-                    }
                 }
             }
 
             .post-meta {
                 .metaColorMixin();
                 font-size: 14px;
-
-                .post-top {
-                    font-weight: bolder;
-                    color      : red;
-                }
             }
 
         }
 
         .post-content {
             font-weight: 300;
+            font-size  : 14px;
         }
     }
 
@@ -169,7 +160,7 @@ body {
             position        : relative;
             padding         : 10px 0;
             border-radius   : 5px;
-            transition      : all var(--transitionTim, .3s ease);
+            transition      : all var(--transitionTime, .3s ease);
             background-color: var(--color-link-item-bg, #f9f9f9);
             margin-bottom   : 3px;
 
@@ -285,46 +276,49 @@ body {
 
 /* 首页文章卡片 */
 .posts-expand {
-    margin-top: 3em;
 
     .home-article {
-        padding         : 1em;
-        margin          : 2em 0;
-        border-radius   : 4px;
-        background-color: var(--color-card-bg, #f9f9f9);
-        position        : relative;
-        overflow        : hidden;
-        transition      : transform var(--transitionTim, .3s ease),box-shadow var(--transitionTim, .3s ease);
+        padding      : 1.5em;
+        margin       : 2em 0;
+        border-radius: 4px;
+        position     : relative;
+        overflow     : hidden;
+        transition   : box-shadow var(--transitionTim, .3s ease);
 
-        &:hover{
-             transform : scale(102%);
-            //box-shadow: 0 0 20px 0 rgba(var(--color-card-bg-contrast-rgb),.1);
-        }
-        /* &::after {
-            content           : " ";
-            position          : absolute;
-            border-radius     : 50%;
-            background        : #ff5f56;
-            width             : 50px;
-            height            : 50px;
-            top               : 0;
-            right             : 30%;
-            -webkit-box-shadow: 50px 0 #ffbd2e, 100px 0 #27c93f;
-            box-shadow        : 50px 0 #ffbd2e, 100px 0 #27c93f;
-            filter            : blur(80px);
-            opacity           : 0;
-            transition        : opacity var(--transitionTim, .3s ease);
+        .post-title {
+            margin-left: 0 !important;
         }
 
-        &:hover::after {
-            opacity: 1;
-        } */
+        &:hover {
+            box-shadow: #0000001a 0px 10px 15px -3px, #0000001a 0px 4px 6px -4px;
+
+            .post-title {
+                a {
+                    color: var(--color-link, #6062ce);
+                }
+            }
+        }
+
+        &::before {
+            content         : ' ';
+            position        : absolute;
+            top             : 1.5em;
+            width           : 1em;
+            height          : 2px;
+            background-color: var(--color-link, #6062ce);
+        }
+
+        .post-top {
+            position: absolute;
+            top     : 0;
+            right   : 0;
+        }
     }
 }
 
 /* 文章详情页 */
 .detail-article {
-    padding: 3em 0;
+    padding: 50px 0;
 
     .post-header {
         text-align    : center;
@@ -333,9 +327,9 @@ body {
         width         : max-content;
         margin        : 0 auto 3em;
 
-        .post-title {
+        /* .post-title {
             margin-bottom: 10px;
-        }
+        } */
     }
 
     p {
@@ -550,7 +544,7 @@ body {
     height          : 100vh;
     left            : 0;
     right           : 0;
-    background-color: var(--color-mark-head-bg , #252525);
+    background-color: var(--color-mark-head-bg, #252525);
     // background: linear-gradient(var(--color-mark-head-bg), var(--color-mark-head-bg) @headerHeight, var(--color-mark-head-bg ) @headerHeight, var(--color-mark-head-bg ));
     opacity         : 0;
     z-index         : -1;
@@ -667,7 +661,7 @@ body {
     right           : -30px;
     bottom          : 3em;
     background-color: transparent;
-    transition      : right var(--transitionTim, .3s ease);
+    transition      : right var(--transitionTime, .3s ease);
 
     svg {
         .hColorMixin(fill)
