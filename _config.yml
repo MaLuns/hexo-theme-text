@@ -1,4 +1,4 @@
-version: 1.0.17
+version: 1.0.18
 
 user:
   name: 白云苍狗
@@ -22,7 +22,7 @@ post_wordcount:
   min2read: true # 单篇 阅读时长
 
 # 是否固定头
-fixed_header: true
+fixed_header: false
 
 # 头部菜单
 menu:
