@@ -38,12 +38,7 @@ body {
 
         li {
             display: inline-block;
-            margin : 0 1.2em;
-            height : 30px;
-
-            /* a {
-                .linkDecorationAnimationMixin()
-            } */
+            margin : 0 12px;
         }
     }
 
@@ -87,7 +82,7 @@ body {
 /* 主体 */
 .layout-main {
     display   : block;
-    margin    : 0 auto;
+    margin    : 50px auto;
     max-width : 48em;
     width     : 95%;
     min-height: calc(100vh - @headerHeight - @footerHeight - 80px);
@@ -141,8 +136,9 @@ body {
     border : none !important;
 
     .post-header {
-        text-align: center;
-        min-height: 100px;
+        text-align   : center;
+        min-height   : 3em;
+        margin-bottom: 1em;
     }
 
     .linf-info {
@@ -318,7 +314,6 @@ body {
 
 /* 文章详情页 */
 .detail-article {
-    padding: 50px 0;
 
     .post-header {
         text-align    : center;
@@ -326,10 +321,6 @@ body {
         border-bottom : 1px dashed var(--color-dashed, #c5c5c5);
         width         : max-content;
         margin        : 0 auto 3em;
-
-        /* .post-title {
-            margin-bottom: 10px;
-        } */
     }
 
     p {
