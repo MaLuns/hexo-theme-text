@@ -36,3 +36,7 @@
     }) : console.log("Service workers are not supported in the current browser.")
 </script>
 <% } %>
+<% if(theme.cloudbase.enable) {%>
+    <script type="text/javascript" src="//imgcache.qq.com/qcloud/cloudbase-js-sdk/1.7.1/cloudbase.full.js"></script>
+    <script type="text/javascript" src="//unpkg.com/b-comments@0.0.5/dist/index.all.min.js"></script>
+<% } %>
