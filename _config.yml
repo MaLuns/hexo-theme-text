@@ -1,4 +1,4 @@
-version: 1.0.21
+version: 1.0.22
 
 user:
   name: 白云苍狗
@@ -62,10 +62,4 @@ cdn:
     - //cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js
     - //cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js
     - //at.alicdn.com/t/font_1518765_5jbj7btfht2.js
-    - //imgcache.qq.com/qcloud/tcbjs/1.6.0/tcb.js
     - //cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.js
-
-# 头像配置
-avatar:
-  gravatar: https://gravatar.loli.net/avatar/
-  qq: https://q1.qlogo.cn/g?b=qq&s=100
