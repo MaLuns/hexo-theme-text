@@ -4,14 +4,14 @@
     <meta name="full-screen" content="yes">
     <meta name="theme-color" content="#317EFB" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
-    <meta name="keywords" content="<%= page.keywords %>,<%= config.keywords %>">
+    <meta name="keywords" content="<%= !!page.keywords ? page.keywords : config.keywords %>">
     <%- open_graph() %>
     <% if(page.description){%>
         <meta name="description" content="<%= page.description %>">
     <%}else if(config.description){%>
         <meta name="description" content="<%= config.description %>">
     <%}%>
-    <title><%= config.title %><%= (!!page.title?' - ' + page.title:'') %></title>
+    <title><%= (!!page.title ? page.title : config.title) %></title>
     <link rel="icon" type="image/png" sizes="32x32" href="<%= url_for(theme.favicon.narmal) %>?v=<%= theme.version %>">
     <link rel="manifest" href="/manifest.json">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
