@@ -3,7 +3,7 @@
         <h1 class="post-title"><%-__('post.links')%></h1>
     </header>
     <div class="linf-info">
-        <h4><%-__('site.title')%></h4>
+        <h2><%-__('site.title')%></h2>
         <p><%-__('site.webmaster')%>：<%- theme.user.name %></p>
         <p><%-__('site.domain')%>：<%- theme.user.domain %></p>
         <p><%-__('site.avatar')%>：<%- theme.user.avatar %></p>
@@ -13,9 +13,9 @@
         <% theme.links.forEach(item=>{%>
             <div class="links-list-item">
                 <a href='<%- item.url %>' target='_blank' rel="nofollow">
-                    <img class="" src="<%- item.image %>">
+                    <img draggable="false" alt="<%- item.name %>" src="<%- item.image %>">
                     <div>
-                        <h4> <%- item.name %> </h4>
+                        <h3> <%- item.name %> </h4>
                         <p> <%- item.desc %> </p>
                     </div>
                 </a>
