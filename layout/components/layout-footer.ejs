@@ -6,7 +6,7 @@
     <%= ' · '+(config.title || '') %> 
     <% if(theme.rss){%>
         · 
-        <a class="_pjax" href="<%- url_for(theme.rss) %>" rel="nofollow"> RSS </a>
+        <a href="<%- url_for(theme.rss) %>" rel="nofollow" target="_blank"> RSS </a>
     <%}%>
     <br>
      Theme by <a href="https://github.com/MaLuns/hexo-theme-text" rel="nofollow" target="_blank">hexo-theme-text </a> ·

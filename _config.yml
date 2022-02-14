@@ -1,4 +1,4 @@
-version: 1.0.22
+version: 1.0.23
 
 user:
   name: 白云苍狗
@@ -39,6 +39,7 @@ menu:
       url: /about
     - title: 🪐&nbsp;虫洞
       url: //foreverblog.cn/go.html
+      nopjax: true
 
 # 开启 Service Worker
 sw: true
