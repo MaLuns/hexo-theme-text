@@ -6,9 +6,9 @@
     --transitionTime         : .35s ease; // 过渡时间
     // 主要字体色
     --color-font             : #1a1a1a;
-    --color-font-rgb         : 26,26,26;
+    --color-font-rgb         : 26, 26, 26;
     --color-font-contrast    : #ffffff;
-    --color-font-contrast-rgb: 255,255,255;
+    --color-font-contrast-rgb: 255, 255, 255;
     --color-font-shade       : #171717;
     --color-font-tint        : #313131;
 
@@ -118,7 +118,7 @@
 
 
     &.dark {
-        --color-font             : #dddddd;;
+        --color-font             : #dddddd;
         --color-font-rgb         : 221, 221, 221;
         --color-font-contrast    : #000000;
         --color-font-contrast-rgb: 0, 0, 0;
@@ -188,12 +188,12 @@
         --color-link-shade       : #c9c9c9;
         --color-link-tint        : #e7e7e7;
 
-        --color-link-decoration: #a7a7a7;
-        --color-link-decoration-rgb: 167,167,167;
-        --color-link-decoration-contrast: #000000;
-        --color-link-decoration-contrast-rgb: 0,0,0;
-        --color-link-decoration-shade: #939393;
-        --color-link-decoration-tint: #b0b0b0;
+        --color-link-decoration             : #a7a7a7;
+        --color-link-decoration-rgb         : 167, 167, 167;
+        --color-link-decoration-contrast    : #000000;
+        --color-link-decoration-contrast-rgb: 0, 0, 0;
+        --color-link-decoration-shade       : #939393;
+        --color-link-decoration-tint        : #b0b0b0;
 
 
         --color-ng-bar-bg             : #fff3e5;
@@ -211,6 +211,50 @@
         --color-toc-bg-shade       : #5d5d5d;
         --color-toc-bg-tint        : #797979;
     }
+
+    // 评论插件
+    --ui-transition-duration : .35s ease;
+}
+
+:root.dark {
+    --ui-bg                      : #1d1d1d;
+    --ui-bg-weak                 : #252525;
+    --ui-aide-bg                 : #111111;
+    // 文本
+    --ui-text                    : #dddddd; // 正文文本
+    --ui-text-weak               : #b4b4b4; // 弱化的正文信息（手风琴子项，表头）
+    --ui-aide-text               : #979797; // 辅助文本、帮助信息（面包屑）
+    --ui-text-inversion          : #3d3d3d; // 文本反转色
+    --ui-aide-text-stress        : #b4b4b4; // 辅助文本、帮助信息里的强调色
+    // 按钮 提示
+    --ui-danger                  : #ed4014; // 失败、错误、告警
+    --ui-danger-weak             : #f16643;
+    --ui-warning                 : #fac20a; // 警告、需注意类型提示
+    --ui-warning-weak            : #fac20a;
+    --ui-success                 : #32d4a1; // 成功、正确
+    --ui-success-weak            : #50d4ab;
+    --ui-info                    : #2d8cf0; // 通知、一般提示、执行中
+    --ui-info-weak               : #57a3f3;
+    // 阴影
+    --ui-shadow                  : rgba(0, 0, 0, 0.2); // 阴影色
+    --ui-light-shadow            : rgba(0, 0, 0, 0.1); // 弱化阴影色
+    // 下拉菜单
+    --ui-dropdown-menu-item      : #5e7ce0;
+    --ui-dropdown-menu-item-color: #ffffff;
+    // 连接
+    --ui-link                    : #536eb3; // 链接文本颜色
+    --ui-link-active             : #4976e9; // 链接文本悬停/激活颜色
+    // 分割线
+    --ui-border-line             : #2b2b2c; // 边框
+    --ui-dividing-line           : #555658; // 内容分割线，用于内容之间的分割
+    // 过渡
+    --ui-transition-duration     : 0.3s ease;
+    // 表单
+    --ui-form-control-line       : #414141; // 表单控件边框色，同 边框分割线
+    --ui-form-control-line-hover : #525457; // 表单控件边框悬停反馈色
+    --ui-form-control-line-active: #364a8b; // 表单控件边框激活色，用于获得焦点
+    // 加载动画颜色
+    --ui-skeleton-background     : linear-gradient(90deg, #1d1d1d 25%, #2e2e2e 37%, #181818 63%);
 }
 
 @import url('./mixin.less');

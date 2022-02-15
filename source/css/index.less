@@ -142,8 +142,12 @@ body {
     }
 
     .linf-info {
-        padding   : 2em 0;
+        padding   : 1.5em 0;
         border-top: 1px dashed var(--color-dashed, #c5c5c5);
+
+        .linf-info-title {
+            font-size: 1.1rem;
+        }
     }
 
     .links-list {
@@ -169,19 +173,28 @@ body {
                 align-items      : center;
                 overflow         : hidden;
 
-                img {
-                    width        : 54px;
-                    height       : 54px;
-                    margin       : 0 20px;
-                    border-radius: 50%;
-                    box-shadow   : none !important;
-                    padding      : 2px;
+                .item-avatar {
+                    width : 54px;
+                    height: 54px;
+                    margin: 0 20px;
+
+                    img {
+                        width        : 100%;
+                        height       : 100%;
+                        border-radius: 50%;
+                        box-shadow   : none !important;
+                        padding      : 2px;
+                    }
                 }
 
-                >div {
+                .item-info {
                     -webkit-box-flex: 1;
                     -ms-flex        : 1;
                     flex            : 1;
+
+                    h3 {
+                        font-size: 1rem;
+                    }
 
                     p {
                         margin   : 0;
@@ -205,10 +218,10 @@ body {
     }
 
     .category-all-page {
-        padding-left: 2em;
+        padding-left: 36px;
 
         .category-title {
-            font-size: 28px;
+            font-size: 24px;
         }
 
         .category-link {
@@ -240,14 +253,14 @@ body {
             .timeline-time {
                 position    : relative;
                 margin-right: .5em;
-                width       : 6rem;
+                width       : 96px;
                 font-size   : 16px;
                 display     : inline-block;
                 text-align  : right;
                 height      : max-content;
 
                 &.timeline-time-year {
-                    font-size: 28px;
+                    font-size: 24px;
                 }
             }
 
