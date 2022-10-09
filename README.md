@@ -1,5 +1,11 @@
-## Hexo Theme Text
-一款简约、轻量的主题，以阅读为主，化繁为简。
+<h1 align="center">hexo-theme-text</h1>
+<p align="center">
+    一款简约、轻量的主题，以阅读为主，化繁为简。
+</p>
+<p align="center">
+  <img width="39%" style="margin:0 5%" src="https://img.lkxin.cn/tu/2022/10/09/634254332250f.png" alt="1665291313308.png" border="0" />
+  <img width="39%"  style="margin:0 5%" src="https://img.lkxin.cn/tu/2022/10/09/634253d6006be.png" alt="634253d6006be.png" border="0" />
+</p>
 
 ## 功能特性
 - [x] 代码高亮
